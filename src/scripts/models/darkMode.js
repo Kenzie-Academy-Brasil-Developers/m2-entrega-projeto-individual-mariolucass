@@ -1,1 +1,3 @@
-export class DarkMode {}
+export class DarkMode {
+  static darkMode() {}
+}

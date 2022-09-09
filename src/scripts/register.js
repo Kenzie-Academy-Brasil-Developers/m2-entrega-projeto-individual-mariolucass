@@ -1,6 +1,5 @@
 import { Register } from "./models/featRegister.js";
 import { Render } from "./models/render.js";
-
 const token = Render.Usertoken;
 
 if (token) {

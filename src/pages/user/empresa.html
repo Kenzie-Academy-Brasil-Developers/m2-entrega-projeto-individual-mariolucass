@@ -6,12 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/src/styles/reset.css" />
-    <link rel="stylesheet" href="/src/styles/dashboard.css" />
+    <link rel="stylesheet" href="/src/styles/forPages/user/empresa.css" />
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-    <script type="module" src="/src/scripts/dashboard.js" defer></script>
 
-    <title>Hashy</title>
+    <script type="module" src="/src/scripts/dashboard.js" defer></script>
+    <script
+      type="module"
+      src="/src/scripts/forPages/user/empresa.js"
+      defer
+    ></script>
+
+    <title>Hashy - Empresa usuário</title>
   </head>
 
   <body>
@@ -23,21 +35,14 @@
         <div class="rectangle3"></div>
       </div>
     </header>
-    <section class="sectionMenu hidden">
-      <div class="menuHeader">
-        <div class="buttonMenuHide">
-          <div class="rectangle4"></div>
-          <div class="rectangle5"></div>
-        </div>
-        <ul class="menuList">
-          <li><a href="http://">Visualizar sua empresa</a></li>
-          <li><a href="http://">Visualizar seu departamento</a></li>
-          <li><a href="http://">Ver funcionários do seu departamento</a></li>
-          <li><a href="http://">Editar suas informações</a></li>
-          <li><span id="logout">Logout</span></li>
-        </ul>
-      </div>
-    </section>
-    <main></main>
+
+    <section class="sectionMenu hidden"></section>
+
+    <main>
+      <section class="empresaUser">
+        <h2>Aqui está sua empresa.</h2>
+        <div></div>
+      </section>
+    </main>
   </body>
 </html>

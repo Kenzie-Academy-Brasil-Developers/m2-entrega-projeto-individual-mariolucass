@@ -1,4 +1,4 @@
-const tokenSite = localStorage.getItem("@redeSocial:token");
+const tokenSite = localStorage.getItem("@Hashy:token");
 export const instance = axios.create({
   baseURL: "http://localhost:6278/",
   headers: {

@@ -7,8 +7,14 @@
 
     <link rel="stylesheet" href="/src/styles/reset.css" />
     <link rel="stylesheet" href="/src/styles/dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
 
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+
     <script type="module" src="/src/scripts/dashboard.js" defer></script>
 
     <title>Hashy</title>
@@ -23,30 +29,21 @@
         <div class="rectangle3"></div>
       </div>
     </header>
-    <section class="sectionMenu hidden">
-      <div class="menuHeader">
-        <div class="buttonMenuHide">
-          <div class="rectangle4"></div>
-          <div class="rectangle5"></div>
-        </div>
-        <ul class="menuList">
-          <li><a href="http://">Visualizar sua empresa</a></li>
-          <li><a href="http://">Visualizar seu departamento</a></li>
-          <li><a href="http://">Editar suas informações</a></li>
-          <li><span id="logout">Logout</span></li>
-        </ul>
-      </div>
-    </section>
+
+    <section class="sectionMenu hidden"></section>
+
     <main>
-      <section>
-        <h1>Olá Usuário..</h1>
+      <section class="boasVindas">
+        <h1>Olá <span id="nameUserBoasVindas"></span>..</h1>
         <span
           >Aqui temos diversas empresas que procuram profissionais e estão
           dispostas a oferecerem novas vagas.
         </span>
       </section>
+
       <section></section>
     </main>
+
     <footer></footer>
   </body>
 </html>

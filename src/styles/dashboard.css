@@ -88,12 +88,14 @@
   align-content: center;
   justify-content: center;
   border-radius: var(--radius2);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .menuList li a,
 #logout {
   text-decoration: none;
   color: var(--white-color);
+  text-shadow: 3px 2px 0px rgba(0, 0, 0, 0.2);
 }
 
 .sectionMenu {
@@ -103,6 +105,21 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(17, 17, 26, 0.4);
+}
+
+.boasVindas {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  background-color: var(--white-div);
+  height: 200px;
+  width: 85%;
+  gap: 1rem;
+  margin: 0 auto;
+  margin-top: 15rem;
+  border-radius: var(--radius2);
+  border: 3px var(--blue-color1) solid;
 }
 
 .hidden {

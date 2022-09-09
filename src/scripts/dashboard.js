@@ -1,10 +1,11 @@
+import { Api } from "./models/api.js";
 import { Render } from "./models/render.js";
-
 const token = Render.Usertoken;
 
-if (token) {
+if (!token) {
   window.location.replace("/index.html");
 } else {
-  Render.renderMenuDash();
-  Render.renderLogout();
+  Render.renderUser();
+  Render.renderMenuDashUser();
+  console.log();
 }

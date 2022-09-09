@@ -1,4 +1,5 @@
 import { instance, instance1 } from "./axios.js";
+import { Toast } from "./toast.js";
 
 export class Api {
   static async postLoginApi(data) {
@@ -6,8 +7,17 @@ export class Api {
       .post("/auth/login", data)
       .then((res) => {
         res.data;
+        Toast.create("Você fez login com sucesso.");
+        console.log(res);
+        localStorage.setItem("@Hashy:token", res.data.token);
+        localStorage.setItem("@Hashy:userId", res.data.uuid);
+        if (res.data.is_admin) {
+          window.location.assign("/src/pages/dashboardAdmin.html");
+        } else {
+          window.location.assign("/src/pages/dashboard.html");
+        }
       })
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return user;
   }
@@ -18,7 +28,7 @@ export class Api {
       .then((res) => {
         res.data;
       })
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return user;
   }
@@ -29,7 +39,7 @@ export class Api {
       .then((res) => {
         return res.data;
       })
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return empresas;
   }
@@ -40,7 +50,7 @@ export class Api {
       .then((res) => {
         res.data;
       })
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return empresas;
   }
@@ -49,7 +59,7 @@ export class Api {
     const funcionarios = await instance1
       .get("/users/departments/coworkers")
       .then((res) => res.data)
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return funcionarios;
   }
@@ -58,34 +68,52 @@ export class Api {
     const departments = await instance1
       .get("/users/departments")
       .then((res) => res.data)
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return departments;
+  }
+
+  static async getUserLoggedApi() {
+    const user = await instance1
+      .get("/users/profile")
+      .then((res) => res.data)
+      .catch((err) => this.messageErrorApi(err));
+
+    return user;
+  }
+
+  static async getCoWorkersApi() {
+    const coWorkers = await instance1
+      .get("/users/departments/coworkers")
+      .then((res) => res.data)
+      .catch((err) => this.messageErrorApi(err));
+
+    return coWorkers;
   }
 
   static async getAllSectorsApi() {
     const sectors = await instance1
       .get("/sectors")
       .then((res) => res.data)
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return sectors;
   }
 
-  static async getAllDepartaments() {
+  static async getAllDepartamentsApi() {
     const departments = await instance1
       .get("/departments")
       .then((res) => res.data)
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return departments;
   }
 
-  static async getAllDepartamentsEmpresa(empresaId) {
+  static async getAllDepartamentsEmpresaApi(empresaId) {
     const empresa = await instance1
       .get(`/departments/${empresaId}`)
       .then((res) => res.data)
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return empresa;
   }
@@ -94,7 +122,7 @@ export class Api {
     const usuarios = await instance1
       .get("/users")
       .then((res) => res.data)
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return usuarios;
   }
@@ -103,7 +131,7 @@ export class Api {
     const users = await instance1
       .get("/admin/out_of_work")
       .then((res) => res.data)
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return users;
   }
@@ -111,8 +139,8 @@ export class Api {
   static async attInfoLoggedApi(data) {
     const funcionario = await instance1
       .patch("/users", data)
-      .then((res) => res.data)
-      .catch((err) => console.log(err.response.data));
+      .then((res) => console.log(res))
+      .catch((err) => this.messageErrorApi(err));
 
     return funcionario;
   }
@@ -121,34 +149,34 @@ export class Api {
     const funcionario = await instance1
       .patch(`/admin/update_user/${funcionarioId}`, data)
       .then((res) => res.data)
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return funcionario;
   }
 
-  static async attContratarFuncionario(data) {
+  static async attContratarFuncionarioApi(data) {
     const contratar = await instance1
       .patch("/departments/hire/", data)
       .then((res) => res.data)
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return contratar;
   }
 
-  static async attDemitirFuncionario(funcionarioId) {
+  static async attDemitirFuncionarioApi(funcionarioId) {
     const demitir = await instance1
       .patch(`/departments/dismiss/${funcionarioId}`)
       .then((res) => res.data)
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return demitir;
   }
 
-  static async attDepartamento(departamentoId) {
+  static async attDepartamentoApi(departamentoId) {
     const departamento = await instance1
       .patch(`/departments/${departamentoId}`)
       .then((res) => res.data)
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return departamento;
   }
@@ -157,7 +185,7 @@ export class Api {
     const empresa = await instance1
       .post("/companies", data)
       .then((res) => res.data)
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return empresa;
   }
@@ -166,17 +194,25 @@ export class Api {
     const departamento = await instance1
       .post("/departments", data)
       .then((res) => res.data)
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return departamento;
   }
 
-  static async deleteDepartamento(departamento) {
+  static async deleteDepartamentoApi(departamento) {
     const departamentoDelete = await instance1
       .delete(`departments/${departamento}`)
       .then((res) => res.data)
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => this.messageErrorApi(err));
 
     return departamentoDelete;
+  }
+
+  static messageErrorApi(message) {
+    Toast.create(message.response.data.error);
+  }
+
+  static messageSucessApi(message) {
+    Toast.create(`Parabéns você fez ${message} com sucesso`);
   }
 }

@@ -1,3 +1,3 @@
 import { User } from "./featUser.js";
 
-User.EditUser();
+await User.getEmpresa();

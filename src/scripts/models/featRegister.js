@@ -13,7 +13,7 @@ export class Register {
         password: inputPassword.value,
         email: inputEmail.value,
         professional_level: inputLevel.value,
-        username: inputUser,
+        username: inputUser.value,
       };
       Api.postRegisterApi(data);
     });
