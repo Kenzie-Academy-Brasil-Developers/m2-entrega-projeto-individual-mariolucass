@@ -1,16 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/src/styles/reset.css" />
+    <link rel="stylesheet" href="/src/styles/components.css" />
     <link rel="stylesheet" href="/src/styles/index.css" />
 
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
     <script type="module" src="/src/scripts/index.js" defer></script>
-    <title>Kenzie Empresas</title>
+    <title>Hashy - login</title>
   </head>
-  <body></body>
+
+  <body>
+    <header>
+      <h2>Hashy</h2>
+      <div>
+        <button id="loginHeader" class="button1 buttonActive">Login</button>
+        <button id="registerHeader" class="button1 buttonInactive buttonRedir">
+          Register
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <form>
+        <h1>Login</h1>
+        <input type="text" id="loginEmail" placeholder="Digite seu e-mail" />
+        <input
+          type="password"
+          id="loginPassword"
+          placeholder="Digite sua senha"
+        />
+        <button id="buttonLogin" class="button2">Login</button>
+      </form>
+      <section>
+        <h2>Empresas parceiras:</h2>
+        <ul class="listaEmpresas"></ul>
+      </section>
+    </main>
+  </body>
 </html>

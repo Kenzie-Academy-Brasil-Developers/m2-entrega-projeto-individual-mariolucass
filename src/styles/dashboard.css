@@ -1,6 +1,110 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-:root {
-  --font-family-1: "Lato", sans-serif;
-  --font-family-2: "Raleway", sans-serif;
+@import url(/src/styles/components.css);
+
+.rectangle1,
+.rectangle2,
+.rectangle3 {
+  width: 22px;
+  height: 4px;
+  background-color: var(--white-div);
+  border-radius: 2px;
+}
+.rectangle4,
+.rectangle5 {
+  width: 22px;
+  height: 4px;
+  background-color: var(--black-color);
+  border-radius: 2px;
+}
+
+.buttonMenu {
+  position: absolute;
+  right: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 18px;
+  width: 32px;
+  cursor: pointer;
+}
+
+.buttonMenuHide {
+  position: absolute;
+  right: 5%;
+  top: 2%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 18px;
+  width: 32px;
+  cursor: pointer;
+}
+
+.rectangle4 {
+  position: absolute;
+  transform: rotate(45deg);
+  top: 50%;
+  color: var(--black-color);
+}
+
+.rectangle5 {
+  position: absolute;
+  transform: rotate(-45deg);
+  top: 50%;
+  color: var(--black-color);
+}
+
+.menuHeader {
+  position: fixed;
+  right: 0%;
+  top: 0%;
+  width: 50vw;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: var(--white-div);
+  border-radius: var(--radius2);
+}
+
+.menuList {
+  margin-top: 100px;
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+}
+
+.menuList li {
+  background-color: var(--blue-color1);
+  width: 90%;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  border-radius: var(--radius2);
+}
+
+.menuList li a,
+#logout {
+  text-decoration: none;
+  color: var(--white-color);
+}
+
+.sectionMenu {
+  position: fixed;
+  right: 0%;
+  top: 0%;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(17, 17, 26, 0.4);
+}
+
+.hidden {
+  display: none;
 }

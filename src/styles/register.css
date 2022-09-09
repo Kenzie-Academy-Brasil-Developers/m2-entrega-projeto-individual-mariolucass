@@ -2,3 +2,8 @@
 
 @import url(/src/styles/components.css);
 @import url(/src/styles/prin.css);
+
+form {
+  height: 60%;
+  border-radius: var(--radius-diagonallyRight);
+}
