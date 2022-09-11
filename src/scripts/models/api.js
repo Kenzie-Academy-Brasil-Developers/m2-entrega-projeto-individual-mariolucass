@@ -7,14 +7,14 @@ export class Api {
       .post("/auth/login", data)
       .then((res) => {
         res.data;
-        Toast.create("Você fez login com sucesso.");
-        console.log(res);
         localStorage.setItem("@Hashy:token", res.data.token);
         localStorage.setItem("@Hashy:userId", res.data.uuid);
         if (res.data.is_admin) {
           window.location.assign("/src/pages/dashboardAdmin.html");
+          this.messageSucessApi("o login");
         } else {
           window.location.assign("/src/pages/dashboard.html");
+          this.messageSucessApi("o login");
         }
       })
       .catch((err) => this.messageErrorApi(err));
@@ -27,6 +27,8 @@ export class Api {
       .post("/auth/register/user", data)
       .then((res) => {
         res.data;
+        this.messageSucessApi("o registro");
+        window.location.assign("/index.html");
       })
       .catch((err) => this.messageErrorApi(err));
 
@@ -139,7 +141,7 @@ export class Api {
   static async attInfoLoggedApi(data) {
     const funcionario = await instance1
       .patch("/users", data)
-      .then((res) => console.log(res))
+      .then((res) => this.messageSucessApi("a edição dos seus dados"))
       .catch((err) => this.messageErrorApi(err));
 
     return funcionario;
@@ -148,16 +150,21 @@ export class Api {
   static async attInfoFuncionarioApi(funcionarioId, data) {
     const funcionario = await instance1
       .patch(`/admin/update_user/${funcionarioId}`, data)
-      .then((res) => res.data)
+      .then(
+        (res) => res.data,
+        this.messageSucessApi("a edição dos dados do funcionário")
+      )
       .catch((err) => this.messageErrorApi(err));
-
     return funcionario;
   }
 
   static async attContratarFuncionarioApi(data) {
     const contratar = await instance1
       .patch("/departments/hire/", data)
-      .then((res) => res.data)
+      .then(
+        (res) => res.data,
+        this.messageSucessApi("a contratação do funcionário")
+      )
       .catch((err) => this.messageErrorApi(err));
 
     return contratar;
@@ -166,7 +173,10 @@ export class Api {
   static async attDemitirFuncionarioApi(funcionarioId) {
     const demitir = await instance1
       .patch(`/departments/dismiss/${funcionarioId}`)
-      .then((res) => res.data)
+      .then(
+        (res) => res.data,
+        this.messageSucessApi("a demição do funcionário")
+      )
       .catch((err) => this.messageErrorApi(err));
 
     return demitir;
@@ -175,7 +185,10 @@ export class Api {
   static async attDepartamentoApi(departamentoId) {
     const departamento = await instance1
       .patch(`/departments/${departamentoId}`)
-      .then((res) => res.data)
+      .then(
+        (res) => res.data,
+        this.messageSucessApi("a edição do departamento")
+      )
       .catch((err) => this.messageErrorApi(err));
 
     return departamento;
@@ -184,7 +197,7 @@ export class Api {
   static async createEmpresasApi(data) {
     const empresa = await instance1
       .post("/companies", data)
-      .then((res) => res.data)
+      .then((res) => res.data, this.messageSucessApi("a criação da empresa"))
       .catch((err) => this.messageErrorApi(err));
 
     return empresa;
@@ -193,7 +206,10 @@ export class Api {
   static async createDepartamentoApi(data) {
     const departamento = await instance1
       .post("/departments", data)
-      .then((res) => res.data)
+      .then(
+        (res) => res.data,
+        this.messageSucessApi("a criação do departamento")
+      )
       .catch((err) => this.messageErrorApi(err));
 
     return departamento;
@@ -202,7 +218,10 @@ export class Api {
   static async deleteDepartamentoApi(departamento) {
     const departamentoDelete = await instance1
       .delete(`departments/${departamento}`)
-      .then((res) => res.data)
+      .then(
+        (res) => res.data,
+        this.messageSucessApi("a exclusão do departamento")
+      )
       .catch((err) => this.messageErrorApi(err));
 
     return departamentoDelete;

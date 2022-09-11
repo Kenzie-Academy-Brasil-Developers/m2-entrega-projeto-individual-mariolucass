@@ -25,21 +25,17 @@ export class User {
     const empresa = usuario.kind_of_work;
     const section = document.querySelector(".empresaUser");
     const message = "da sua Empresa";
-    function createListEmpresa() {
-      const ul = document.createElement("ul");
-    }
-    empresa ? createListEmpresa() : this.messageError(message, section);
+
+    empresa ? Render.renderEmpresa() : this.messageError(message, section);
   }
 
   static async getDepartamento() {
     const departamento = await Api.getDepartamentsLoggedApi();
     const section = document.querySelector(".departamentoUser");
     const message = "do seu Departamento";
-    function createListDepartaments() {
-      const ul = document.createElement("ul");
-    }
+
     departamento
-      ? createListDepartaments()
+      ? Render.renderDepartaments()
       : this.messageError(message, section);
   }
 
@@ -47,14 +43,9 @@ export class User {
     const coWorkers = await Api.getCoWorkersApi();
     const section = document.querySelector(".departamentoCoWorkers");
     const message = "de CoWorkers";
-    function createListCoWorkers() {
-      const ul = document.createElement("ul");
-      coWorkers.forEach((element) => {
-        ul.append(Render.renderCoWorkers(element));
-      });
-    }
+
     coWorkers.length
-      ? createListCoWorkers()
+      ? Render.renderCoWorkers()
       : this.messageError(message, section);
   }
 

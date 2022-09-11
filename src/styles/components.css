@@ -18,11 +18,10 @@
   --radius-diagonallyLeft: var(--radius1) 0rem var(--radius1) 0rem;
   --radius-bottom: 0rem 0rem var(--radius1) var(--radius1);
 
-  --gap-1: 1rem
-  --gap-2: calc((var(--gap-1)) / 2)
-  --gap-3: calc((var(--gap-1)) / 4)
+  --gap-1: 1rem;
+  --gap-2: calc((var(--gap-1)) / 2);
+  --gap-3: calc((var(--gap-1)) / 4);
 }
-
 
 body {
   width: 100vw;
@@ -42,15 +41,21 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 9.5%;
-  background-color: var(--blue-color1);
+  background: rgb(0, 168, 232);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 168, 232, 1) 0%,
+    rgba(0, 52, 89, 1) 100%
+  );
   color: var(--white-color);
   padding: 1rem;
   inset: 0;
   border-radius: var(--radius-bottom);
   margin: 0 auto;
+  border: 2px solid var(--blue-color2);
 }
 
-header h2{
+header h2 {
   cursor: pointer;
 }
 
@@ -60,19 +65,18 @@ main {
   margin-top: 20vh;
 }
 
-form input{
+form input {
   width: 90%;
   height: 1.5rem;
   border-radius: var(--radius3);
   border: 1px solid var(--black-color);
 }
 
-form input::placeholder{
+form input::placeholder {
   font-family: var(--font-family-2);
   padding: 0.5rem;
   text-align: center;
 }
-
 
 h1 {
   font-size: 32px;
@@ -104,12 +108,11 @@ h3 {
   border-radius: var(--radius3);
 }
 
-.button1:hover{
+.button1:hover {
   background-color: var(--blue-color2);
-
 }
 
-.button2{
+.button2 {
   border: none;
   width: 90%;
   height: 2.5rem;
@@ -122,13 +125,12 @@ h3 {
   border: 1px solid var(--blue-color2);
 }
 
-.button2:hover{
+.button2:hover {
   background-color: var(--blue-color1);
   color: var(--white-color);
 }
 
-
-form{
+form {
   width: 80%;
   height: 40%;
   margin: 0 auto;

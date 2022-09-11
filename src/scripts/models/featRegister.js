@@ -18,7 +18,6 @@ export class Register {
       Api.postRegisterApi(data);
     });
   }
-
   static async redirect() {
     const redirButton = document.querySelectorAll(".buttonRedir");
 

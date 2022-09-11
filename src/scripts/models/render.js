@@ -3,13 +3,22 @@ import { Api } from "./api.js";
 export class Render {
   static Usertoken = localStorage.getItem("@Hashy:token");
 
+  static createE(e) {
+    return document.createElement(e);
+  }
+
+  static classA(e, c) {
+    return e.classList.add(c);
+  }
+
   static async renderEmpresasLogin() {
+    const { createE } = this;
     const empresas = await Api.getEmpresasApi();
     const ul = document.querySelector(".listaEmpresas");
     empresas.forEach((elem) => {
-      const liCard = document.createElement("li");
-      const nameEmpresa = document.createElement("h3");
-      const spanDescricao = document.createElement("span");
+      const liCard = createE("li");
+      const nameEmpresa = createE("h3");
+      const spanDescricao = createE("span");
 
       nameEmpresa.innerText = elem.name;
       spanDescricao.innerText = elem.description;
@@ -18,27 +27,36 @@ export class Render {
     });
   }
 
-  static async renderUser() {
+  static async renderUser(elem) {
     const user = await Api.getUserLoggedApi();
-    const spanUsuario = document.getElementById("nameUserBoasVindas");
+    const spanUsuario = document.getElementById(elem);
     spanUsuario.innerText = user.username;
+    spanUsuario.style.fontWeight = "900";
   }
 
-  static async renderUsers() {
-    const users = await Api.getAllUsersApi();
+  static async renderLevel(elem) {
+    const user = await Api.getUserLoggedApi();
+    const spanNivel = document.getElementById(elem);
+    spanNivel.innerText = user.professional_level;
+    spanNivel.style.fontWeight = "600";
   }
 
-  static async renderDepartaments() {
-    const departaments = Api.getAllDepartaments();
+  static async renderUsers(secao) {
+    const { createE } = this;
   }
 
-  static async renderCoWorkers() {
-    function createElem(elem) {
-      return document.createElement(elem);
-    }
+  static async renderDepartaments(secao) {
+    const { createE } = this;
+    const divDepartamento = createE("div");
+    const h2 = createE("h2");
+  }
 
-    const li = createElem("li");
-    const divUser = createElem("div");
+  static async renderCoWorkers(secao) {
+    const { createE } = this;
+
+    const li = createE("li");
+    const divUser = createE("div");
+    const spanUsuario = createE("span");
   }
 
   static async renderEmpresa() {}

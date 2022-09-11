@@ -2,6 +2,13 @@
 
 @import url(/src/styles/components.css);
 
+main {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
 .rectangle1,
 .rectangle2,
 .rectangle3 {
@@ -67,6 +74,7 @@
   margin: 0 auto;
   background-color: var(--white-div);
   border-radius: var(--radius2);
+  animation: showMenu 1s ease-in-out;
 }
 
 .menuList {
@@ -96,6 +104,7 @@
   text-decoration: none;
   color: var(--white-color);
   text-shadow: 3px 2px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 .sectionMenu {
@@ -117,11 +126,30 @@
   width: 85%;
   gap: 1rem;
   margin: 0 auto;
-  margin-top: 15rem;
   border-radius: var(--radius2);
   border: 3px var(--blue-color1) solid;
 }
 
 .hidden {
   display: none;
+}
+
+@keyframes showMenu {
+  0% {
+    transform: translateX(50vw);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes hideMenu {
+  0% {
+    transform: translateX(0px);
+  }
+
+  100% {
+    transform: translateX(50vw);
+  }
 }
