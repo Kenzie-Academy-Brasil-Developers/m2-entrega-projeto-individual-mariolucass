@@ -2,3 +2,22 @@
 
 @import url(/src/styles/components.css);
 @import url(/src/styles/dashboard.css);
+
+form {
+  min-height: 80%;
+  padding: 1rem;
+  border-radius: var(--radius1);
+}
+
+select {
+  width: 90%;
+  height: 1.5rem;
+  border-radius: var(--radius3);
+  border: 1px solid var(--black-color);
+  text-align: center;
+}
+
+.secao1 ul {
+  height: 12rem;
+  overflow-y: auto;
+}

@@ -185,10 +185,7 @@ export class Api {
   static async attDepartamentoApi(departamentoId) {
     const departamento = await instance1
       .patch(`/departments/${departamentoId}`)
-      .then(
-        (res) => res.data,
-        this.messageSucessApi("a edição do departamento")
-      )
+      .then((res) => this.messageSucessApi("a edição do departamento"))
       .catch((err) => this.messageErrorApi(err));
 
     return departamento;
@@ -197,7 +194,7 @@ export class Api {
   static async createEmpresasApi(data) {
     const empresa = await instance1
       .post("/companies", data)
-      .then((res) => res.data, this.messageSucessApi("a criação da empresa"))
+      .then((res) => this.messageSucessApi("a criação da empresa"))
       .catch((err) => this.messageErrorApi(err));
 
     return empresa;
@@ -206,10 +203,7 @@ export class Api {
   static async createDepartamentoApi(data) {
     const departamento = await instance1
       .post("/departments", data)
-      .then(
-        (res) => res.data,
-        this.messageSucessApi("a criação do departamento")
-      )
+      .then((res) => this.messageSucessApi("a criação do departamento"))
       .catch((err) => this.messageErrorApi(err));
 
     return departamento;

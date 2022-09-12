@@ -1,10 +1,14 @@
 import { Login } from "./models/featLogin.js";
 import { Render } from "./models/render.js";
 const token = Render.Usertoken;
+const tokenAdmin = localStorage.getItem("@Hashy:admin");
 async function loginPage() {
   await Render.renderEmpresasLogin();
   Login.redirect();
   Login.login();
 }
-
-token ? window.location.assign("/src/pages/dashboard.html") : loginPage();
+tokenAdmin
+  ? window.location.replace("/src/pages/dashboardadmin.html")
+  : token
+  ? window.location.replace("/src/pages/dashboard.html")
+  : loginPage();
