@@ -37,21 +37,61 @@ export class Render {
     const { createE } = this;
   }
 
-  static async renderDepartaments(secao) {
+  static async renderDepartaments(lista) {
     const { createE } = this;
-    const divDepartamento = createE("div");
-    const h2 = createE("h2");
-  }
-
-  static async renderCoWorkers(secao) {
-    const { createE } = this;
-
+    const section = document.querySelector(".departamentoUser");
+    const ul = createE("ul");
+    console.log(lista);
     const li = createE("li");
-    const divUser = createE("div");
-    const spanUsuario = createE("span");
+    const h2 = createE("h2");
+    const span2 = createE("span");
+
+    h2.innerText = lista.name;
+    span2.innerText = lista.description;
+
+    li.append(h2, span2);
+    ul.append(li);
+    section.append(ul);
   }
 
-  static async renderEmpresa() {}
+  static async renderCoWorkers(lista) {
+    const { createE } = this;
+    const section = document.querySelector(".departamentoCoWorkers");
+    const ul = createE("ul");
+
+    lista.forEach((elem) => {
+      const li = createE("li");
+      const userName = createE("h3");
+      const span = createE("span");
+      const span1 = createE("span");
+      userName.innerText = elem.username;
+      elem.kind_of_work
+        ? (span.innerText = elem.kind_of_work)
+        : (span.innerText = "A decidir.");
+      span1.innerText = elem.professional_level;
+      li.append(userName, span, span1);
+      ul.append(li);
+    });
+    section.append(ul);
+  }
+
+  static async renderEmpresa(lista) {
+    const { createE } = this;
+    const section = document.querySelector(".empresaUser");
+    const ul = createE("ul");
+    console.log(lista);
+    const li = createE("li");
+    const h2 = createE("h2");
+    const span1 = createE("span");
+    const span2 = createE("span");
+
+    h2.innerText = lista.name;
+    span1.innerText = lista.opening_hours;
+    span2.innerText = lista.description;
+    li.append(h2, span1, span2);
+    ul.append(li);
+    section.append(ul);
+  }
 
   static async renderEmpresasCriadasAdmin() {
     const { createE } = this;
