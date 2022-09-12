@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/styles/reset.css" />
+    <link rel="stylesheet" href="/src/styles/register.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+
+    <script type="module" src="/src/scripts/register.js" defer></script>
+
+    <title>Hashy - register</title>
+  </head>
+
+  <body>
+    <header>
+      <h2>Hashy</h2>
+      <div>
+        <button id="loginHeader" class="button1 buttonInactive buttonRedir">
+          Login
+        </button>
+        <button id="registerHeader" class="button1 buttonActive">
+          Register
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <form>
+        <h1>Register</h1>
+        <input
+          type="text"
+          id="registerUserName"
+          placeholder="Digite seu e-mail."
+        />
+        <input
+          type="text"
+          id="registerLevel"
+          placeholder="Digite seu nível profissional."
+        />
+        <input
+          type="email"
+          id="registerEmail"
+          placeholder="Digite seu e-mail."
+        />
+        <input
+          type="password"
+          id="registerPassword"
+          placeholder="Digite sua senha."
+        />
+        <button id="buttonRegister" class="button2">Register</button>
+      </form>
+      <section>
+        <h2>Empresas parceiras:</h2>
+        <ul class="listaEmpresas"></ul>
+      </section>
+    </main>
+  </body>
+</html>

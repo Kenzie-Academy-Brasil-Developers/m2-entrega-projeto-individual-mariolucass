@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --font-family-1: "Lato", sans-serif;
+  --font-family-2: "Raleway", sans-serif;
+
+  --white-color: #ffffff;
+  --white-div: #f2f3f4;
+  --black-color: #00171f;
+  --blue-color1: #003459;
+  --blue-color2: #007ea7;
+  --blue-color3: #00a8e8;
+
+  --radius1: 1rem;
+  --radius2: calc(var(--radius1) / 2);
+  --radius3: calc(var(--radius1) / 4);
+  --radius-diagonallyRight: 0rem var(--radius1) 0rem var(--radius1);
+  --radius-diagonallyLeft: var(--radius1) 0rem var(--radius1) 0rem;
+  --radius-bottom: 0rem 0rem var(--radius1) var(--radius1);
+
+  --gap-1: 1rem;
+  --gap-2: calc((var(--gap-1)) / 2);
+  --gap-3: calc((var(--gap-1)) / 4);
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: var(--font-family-1);
+  background-image: url(/src/assets/wave.svg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
+}
+
+header {
+  position: fixed;
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 9.5%;
+  background: rgb(0, 168, 232);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 168, 232, 1) 0%,
+    rgba(0, 52, 89, 1) 100%
+  );
+  color: var(--white-color);
+  padding: 1rem;
+  inset: 0;
+  border-radius: var(--radius-bottom);
+  margin: 0 auto;
+  border: 2px solid var(--blue-color2);
+}
+
+header h2 {
+  cursor: pointer;
+}
+
+main {
+  width: 100%;
+  height: 90vh;
+  margin-top: 20vh;
+}
+
+form input {
+  width: 90%;
+  height: 1.5rem;
+  border-radius: var(--radius3);
+  border: 1px solid var(--black-color);
+}
+
+form input::placeholder {
+  font-family: var(--font-family-2);
+  padding: 0.5rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.button1 {
+  border: none;
+  width: 5rem;
+  height: 2rem;
+  cursor: pointer;
+  color: var(--white-color);
+  font-weight: 400;
+  font-family: var(--font-family-2);
+  background-color: var(--blue-color3);
+  border-radius: var(--radius3);
+}
+
+.button1:hover {
+  background-color: var(--blue-color2);
+}
+
+.button2 {
+  border: none;
+  width: 90%;
+  height: 2.5rem;
+  background-color: var(--white-color);
+  color: var(--blue-color1);
+  font-weight: bold;
+  font-family: var(--font-family-2);
+  border-radius: var(--radius3);
+  cursor: pointer;
+  border: 1px solid var(--blue-color2);
+}
+
+.button2:hover {
+  background-color: var(--blue-color1);
+  color: var(--white-color);
+}
+
+form {
+  width: 80%;
+  height: 40%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: var(--radius-diagonallyLeft);
+  border: var(--blue-color3) 2px solid;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--white-div);
+}

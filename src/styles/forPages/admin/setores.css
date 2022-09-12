@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import url(/src/styles/components.css);
+@import url(/src/styles/dashboard.css);
+
+.secao1 ul li span {
+  font-size: 24px;
+}
+
+.button2 {
+  height: 40px;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(17, 17, 26, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal ul {
+  background-color: var(--white-div);
+  width: 85%;
+  height: 300px;
+  flex-direction: column;
+  padding: 1rem;
+  border: 2px solid var(--blue-color3);
+  border-radius: var(--radius-bottom);
+  gap: 1rem;
+  overflow-y: auto;
+}
+
+.modal ul li {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  width: 75%;
+  gap: 0.5rem;
+  border: 2px solid var(--blue-color2);
+  padding: 1rem;
+  margin: 0 auto;
+  margin-top: 3.5rem;
+}
+
+#closeModal {
+  position: fixed;
+  right: 4.6%;
+  top: 26.8%;
+  background-color: brown;
+  padding: 0.4rem;
+  border-radius: var(--radius3);
+  color: azure;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}

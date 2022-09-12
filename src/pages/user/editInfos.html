@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/src/styles/reset.css" />
+    <link rel="stylesheet" href="/src/styles/forPages/user/editInfos.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <script
+      type="module"
+      src="/src/scripts/forPages/user/editInfos.js"
+      defer
+    ></script>
+
+    <title>Hashy- Editar informações usuário</title>
+  </head>
+
+  <body>
+    <header>
+      <div><h2>Hashy</h2></div>
+      <div class="buttonMenu">
+        <div class="rectangle1"></div>
+        <div class="rectangle2"></div>
+        <div class="rectangle3"></div>
+      </div>
+    </header>
+
+    <section class="sectionMenu hidden"></section>
+
+    <main>
+      <form class="editInfos">
+        <h2>
+          Edite suas informações aqui <span id="nameUserBoasVindas"></span>.
+        </h2>
+        <input
+          type="email"
+          id="editEmail"
+          placeholder="Digite seu novo e-mail."
+        />
+        <input
+          type="text"
+          id="editUserName"
+          placeholder="Digite seu novo username."
+        />
+        <input
+          type="password"
+          id="editPassword"
+          placeholder="Digite sua nova senha."
+        />
+        <button id="buttonEdit" class="button2">Editar</button>
+      </form>
+    </main>
+  </body>
+</html>
