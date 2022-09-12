@@ -33,7 +33,6 @@ export class User {
   static async getDepartamento() {
     const departamento1 = await Api.getDepartamentsLoggedApi();
     const departamento = departamento1.departaments;
-    console.log(departamento);
     const section = document.querySelector(".departamentoUser");
     const message = "do seu Departamento";
 
@@ -44,7 +43,6 @@ export class User {
 
   static async getCoWorkers() {
     const coWorkers = await Api.getCoWorkersApi();
-    console.log(coWorkers);
     const section = document.querySelector(".departamentoCoWorkers");
     const message = "de CoWorkers";
 
