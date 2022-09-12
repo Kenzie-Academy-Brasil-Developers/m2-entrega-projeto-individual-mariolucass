@@ -21,7 +21,7 @@
       defer
     ></script>
 
-    <title>Hashy - Empresa usuário</title>
+    <title>Hashy - Empresas admin</title>
   </head>
 
   <body>
@@ -41,9 +41,40 @@
         Esta area é referente ao controle das Empresas. Aqui você vê-las,
         deletá-las ou editá-las.
       </h2>
-      <section class="empresasCriadas"></section>
-      <section class="createEmpresa"></section>
+      <section class="empresasCriadas secao1">
+        <h3>Aqui estão as empresas criadas.</h3>
+      </section>
+
+      <section class="createEmpresa secao1">
+        <h3>Crie aqui sua empresa.</h3>
+        <form action="">
+          <input
+            type="text"
+            id="empresaNome"
+            placeholder="Digite o nome da empresa. "
+          />
+          <input
+            type="text"
+            id="empresaHorario"
+            placeholder="Digite o horário de funcionamento."
+          />
+          <input
+            type="text"
+            id="empresaDescricao"
+            placeholder="Digite a descrição da empresa"
+          />
+          <select name="" id="empresaSetor">
+            <option value="">Escolha o setor</option>
+          </select>
+
+          <button class="button2" id="buttonCreateEmpresa">
+            Criar Empresa
+          </button>
+        </form>
+      </section>
+
       <section class="deleteEmpresa"></section>
+
       <section class="modal"></section>
       <section class="modal1"></section>
     </main>

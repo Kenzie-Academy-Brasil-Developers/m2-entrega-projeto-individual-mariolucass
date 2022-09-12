@@ -53,7 +53,23 @@ export class Render {
 
   static async renderEmpresa() {}
 
-  static async renderEmpresasCriadasAdmin() {}
+  static async renderEmpresasCriadasAdmin() {
+    const { createE } = this;
+    const empresas = await Api.getEmpresasApi();
+    const section = document.querySelector(".empresasCriadas");
+    const ul = createE("ul");
+    empresas.forEach((elem) => {
+      const liCard = createE("li");
+      const nameEmpresa = createE("h3");
+      const spanDescricao = createE("span");
+
+      nameEmpresa.innerText = elem.name;
+      spanDescricao.innerText = elem.description;
+      liCard.append(nameEmpresa, spanDescricao);
+      ul.append(liCard);
+    });
+    section.append(ul);
+  }
 
   static async renderSetoresAdmin() {
     const { createE } = this;
@@ -74,9 +90,24 @@ export class Render {
     secao.append(ul);
   }
 
-  static async renderDepartamentsAdmin() {}
+  static async renderDepartamentsAdmin() {
+    const { createE } = this;
+    const departamentos = await Api.getAllDepartamentsApi();
+    const section = document.querySelector(".departamentosCriados");
 
-  static async createDepartamentAdmin() {}
+    const ul = createE("ul");
+    departamentos.forEach((elem) => {
+      const liCard = createE("li");
+      const nameEmpresa = createE("h3");
+      const spanDescricao = createE("span");
+
+      nameEmpresa.innerText = elem.name;
+      spanDescricao.innerText = elem.description;
+      liCard.append(nameEmpresa, spanDescricao);
+      ul.append(liCard);
+    });
+    section.append(ul);
+  }
 
   static async editDepartamentAdmin() {}
 
@@ -86,8 +117,6 @@ export class Render {
     const funcionarios = funcionarios1.filter((elem) => {
       return !elem.is_admin;
     });
-    console.log(funcionarios);
-
     const secao = document.querySelector(".funcionariosEditarDeletar");
     const ul = createE("ul");
     funcionarios.forEach((elem) => {

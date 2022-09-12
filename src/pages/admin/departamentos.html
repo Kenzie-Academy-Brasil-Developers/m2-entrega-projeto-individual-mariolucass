@@ -24,7 +24,7 @@
       defer
     ></script>
 
-    <title>Hashy - Empresa usuário</title>
+    <title>Hashy - Departamentos admin</title>
   </head>
 
   <body>
@@ -41,9 +41,34 @@
 
     <main>
       <h2>Esta area é referente ao controle dos Departamentos</h2>
-      <section class="departamentosCriados"></section>
-      <section class="departamentoCreate"></section>
-      <section class="departamentoEditarDeletar"></section>
+      <section class="departamentosCriados secao1">
+        <h3>Aqui estão os departamentos existentes.</h3>
+      </section>
+      <section class="departamentoEditarDeletar secao1">
+        <h3>Edite ou delete aqui algum departamento.</h3>
+      </section>
+      <section class="departamentoCreate secao1">
+        <form action="">
+          <h3>Crie aqui seu departamento.</h3>
+          <input
+            type="text"
+            id="departamentoNome"
+            placeholder="Digite o nome do departamento. "
+          />
+          <input
+            type="text"
+            id="departamentoDescricao"
+            placeholder="Digite a descrição do departamento."
+          />
+          <select name="" id="departamentoEmpresa">
+            <option value="">Escolha a empresa</option>
+          </select>
+          <button class="button2" id="buttonCreateDepartamento">
+            Criar Departamento
+          </button>
+        </form>
+      </section>
+
       <section class="modal"></section>
       <section class="modal1"></section>
       <section class="modal2"></section>

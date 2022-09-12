@@ -1,11 +1,13 @@
-import { Api } from "./models/api.js";
 import { Render } from "./models/render.js";
 const token = Render.Usertoken;
-function dashboard() {
+const tokenAdmin = localStorage.getItem("@Hashy:admin");
+async function dashboard() {
   Render.renderUser("nameUserBoasVindas");
   Render.renderLevel("userLevelWork");
   Render.renderMenuDashUser();
-  console.log();
 }
-
-!token ? window.location.replace("/index.html") : dashboard();
+tokenAdmin
+  ? window.location.replace("/src/pages/dashboardadmin.html")
+  : !token
+  ? window.location.replace("/index.html")
+  : dashboard();
