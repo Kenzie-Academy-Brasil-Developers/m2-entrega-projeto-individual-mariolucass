@@ -22,17 +22,39 @@ export class Admin {
   static async getFuncionariosOffWork() {
     await Render.renderFuncionariosOffWorkAdmin();
     const buttons = document.querySelectorAll(".buttonContratar");
+    const modal = document.querySelector(".modal");
+
     buttons.forEach((elem) => {
       elem.addEventListener("click", async (event) => {
         event.preventDefault();
-        const funcionarioId = elem.id;
-        await Api.attContratarFuncionarioApi();
+        Modal.contratarFuncionario(elem.id);
+        modal.classList.toggle("hidden");
       });
     });
   }
 
   static async getAllUsersForEdit() {
     const users = await Render.renderFuncionariosAdmin();
+
+    const buttonEditar = document.querySelectorAll(".buttonEditar");
+    const buttonDemitir = document.querySelectorAll(".buttonDemitir");
+    const modal1 = document.querySelector(".modal1");
+    const modal2 = document.querySelector(".modal2");
+
+    buttonEditar.forEach((elem) => {
+      elem.addEventListener("click", async (event) => {
+        event.preventDefault();
+        Modal.editFuncionario(elem.id);
+        modal1.classList.toggle("hidden");
+      });
+    });
+    buttonDemitir.forEach((elem) => {
+      elem.addEventListener("click", async (event) => {
+        event.preventDefault();
+        Modal.deleteFuncionario(elem.id);
+        modal2.classList.toggle("hidden");
+      });
+    });
   }
 
   static async getEmpresas() {
@@ -61,6 +83,13 @@ export class Admin {
 
   static async selectEmpresas() {
     const selectSetor = document.getElementById("empresaSetor");
+    const setores = await Api.getAllSectorsApi();
+    setores.forEach((element) => {
+      const option = document.createElement("option");
+      option.innerText = element.description;
+      option.value = element.uuid;
+      selectSetor.append(option);
+    });
   }
 
   static async getDepartamentos() {
@@ -87,6 +116,13 @@ export class Admin {
 
   static async selectDepartamento() {
     const selectEmpresa = document.getElementById("departamentoEmpresa");
+    const empresas = await Api.getEmpresasApi();
+    empresas.forEach((element) => {
+      const option = document.createElement("option");
+      option.innerText = element.name;
+      option.value = element.uuid;
+      selectEmpresa.append(option);
+    });
   }
 
   static messageError(message, section) {

@@ -1,3 +1,5 @@
+import { Api } from "./api.js";
+
 export class Modal {
   static async empresasporSetor(lista) {
     await lista;
@@ -55,7 +57,98 @@ export class Modal {
 
   static async deleteDepartamento() {}
 
-  static async editFuncionario() {}
+  static async contratarFuncionario(id) {
+    const departamentos = await Api.getAllDepartamentsApi();
+    const modal = document.querySelector(".modal");
+    modal.innerHTML = "";
 
-  static async deleteFuncionario() {}
+    const form = document.createElement("form");
+    const select = document.createElement("select");
+    const button = document.createElement("button");
+
+    button.classList.add("buttonContratarApi", "button2");
+    select.classList.add("departamentoHire");
+    button.id = id;
+    button.innerText = "Contratar Agora.";
+    departamentos.forEach((element) => {
+      const option = document.createElement("option");
+      option.innerText = element.name;
+      option.value = element.uuid;
+      select.append(option);
+    });
+
+    this.closeModal(modal, form);
+    form.append(select, button);
+    modal.append(form);
+
+    button.addEventListener("click", async (event) => {
+      event.preventDefault();
+      const data = {
+        user_uuid: event.target.id,
+        department_uuid: select.value,
+      };
+      await Api.attContratarFuncionarioApi(data);
+    });
+  }
+
+  static async editFuncionario(id) {
+    const modal = document.querySelector(".modal1");
+    modal.innerHTML = "";
+    const form = document.createElement("form");
+    this.closeModal(modal, form);
+
+    const h3 = document.createElement("h3");
+    h3.innerText = "Edite aqui.";
+    const inputTipo = document.createElement("input");
+    const inputLevel = document.createElement("input");
+    inputTipo.id = "editarTipoTrabalho";
+    inputLevel.id = "editarLevel";
+    inputTipo.placeholder = "Edite aqui seu tipo de trabalho.";
+    inputLevel.placeholder = "Edite aqui seu nivel de  trabalho.";
+
+    const button = document.createElement("button");
+    button.id = id;
+    button.innerText = "Editar Agora.";
+    button.classList.add("buttonEditarApi", "button2");
+
+    button.addEventListener("click", async (event) => {
+      event.preventDefault();
+      const data = {
+        kind_of_work: inputTipo.value,
+        professional_level: inputLevel.value,
+      };
+      Api.attInfoFuncionarioApi(id, data);
+    });
+
+    form.append(h3, inputTipo, inputLevel, button);
+    modal.append(form);
+  }
+
+  static async deleteFuncionario(id) {
+    const modal = document.querySelector(".modal2");
+    modal.innerHTML = "";
+    const form = document.createElement("form");
+    this.closeModal(modal, form);
+    modal.append(form);
+
+    const button = document.createElement("button");
+    button.id = id;
+    button.innerText = "Demitir Agora.";
+
+    button.classList.add("buttonDemitirApi", "button2");
+
+    button.addEventListener("click", async (event) => {
+      event.preventDefault();
+    });
+  }
+
+  static closeModal(modal, form) {
+    const closeModal = document.createElement("span");
+    closeModal.innerText = "X";
+    closeModal.id = "closeModal";
+    closeModal.addEventListener("click", () => {
+      modal.classList.toggle("hidden");
+    });
+    form.append(closeModal);
+  }
 }

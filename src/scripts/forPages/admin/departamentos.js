@@ -5,6 +5,7 @@ async function departamentos() {
   Render.renderMenuDashAdmin();
   Admin.createDepartamento();
   Admin.getDepartamentos();
+  Admin.selectDepartamento();
 }
 
 !token ? window.location.replace("/index.html") : departamentos();
