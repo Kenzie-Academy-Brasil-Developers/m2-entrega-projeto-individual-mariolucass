@@ -63,14 +63,17 @@ export class Render {
       const userName = createE("h3");
       const span = createE("span");
       const span1 = createE("span");
+
       userName.innerText = elem.username;
       elem.kind_of_work
         ? (span.innerText = elem.kind_of_work)
         : (span.innerText = "A decidir.");
       span1.innerText = elem.professional_level;
+
       li.append(userName, span, span1);
       ul.append(li);
     });
+
     section.append(ul);
   }
 
@@ -86,6 +89,7 @@ export class Render {
     h2.innerText = lista.name;
     span1.innerText = lista.opening_hours;
     span2.innerText = lista.description;
+
     li.append(h2, span1, span2);
     ul.append(li);
     section.append(ul);
@@ -103,9 +107,11 @@ export class Render {
 
       nameEmpresa.innerText = elem.name;
       spanDescricao.innerText = elem.description;
+
       liCard.append(nameEmpresa, spanDescricao);
       ul.append(liCard);
     });
+
     section.append(ul);
   }
 
@@ -118,13 +124,17 @@ export class Render {
       const li = createE("li");
       const span = createE("span");
       const button = createE("button");
+
       button.classList.add("button2", "showEmpresas");
-      button.innerText = "Listar empresas";
+
       button.id = elem.description;
       span.innerText = elem.description;
+      button.innerText = "Listar empresas";
+
       li.append(span, button);
       ul.append(li);
     });
+
     secao.append(ul);
   }
 
@@ -141,13 +151,15 @@ export class Render {
 
       nameEmpresa.innerText = elem.name;
       spanDescricao.innerText = elem.description;
+
       liCard.append(nameEmpresa, spanDescricao);
       ul.append(liCard);
     });
+
     section.append(ul);
   }
 
-  static async editDepartamentAdmin() {}
+  static async renderEditDepartamentAdmin() {}
 
   static async renderFuncionariosAdmin() {
     const { createE } = this;
@@ -173,25 +185,27 @@ export class Render {
       divButtons.classList.add("divButtons");
       button1.classList.add("button2", "buttonEditar");
       button2.classList.add("button2", "buttonDemitir");
-      button1.id = elem.uuid;
-      button1.innerText = "Editar";
-      button2.id = elem.uuid;
-      button2.innerText = "Demitir";
-      button1.style.backgroundColor = "blue";
-      button2.style.backgroundColor = "red";
 
-      h2.innerText = elem.username;
-      spanLevel.innerText = "Nível profissional:";
-      span.innerText = elem.professional_level;
-      span.style.fontWeight = "600";
-      span1.innerText = `Tipo de trabalho :`;
+      button1.id = elem.uuid;
+      button2.id = elem.uuid;
       elem.kind_of_work
         ? (span2.innerText = elem.kind_of_work)
         : (span2.innerText = "A definir.");
-      span2.style.fontWeight = "600";
-      span3.innerText = `E-mail para contato:`;
+      h2.innerText = elem.username;
+      span.innerText = elem.professional_level;
       span4.innerText = elem.email;
+
+      spanLevel.innerText = "Nível profissional:";
+      span1.innerText = `Tipo de trabalho :`;
+      span3.innerText = `E-mail para contato:`;
+      button1.innerText = "Editar";
+      button2.innerText = "Demitir";
+
+      span.style.fontWeight = "600";
+      span2.style.fontWeight = "600";
       span4.style.fontWeight = "600";
+      button1.style.backgroundColor = "blue";
+      button2.style.backgroundColor = "red";
 
       li.append(h2, spanLevel, span, span1, span2, span3, span4);
       divButtons.append(button1, button2);
@@ -200,12 +214,6 @@ export class Render {
     });
     secao.append(ul);
   }
-
-  static async editFuncionarioAdmin() {}
-
-  static async deleteFuncionarioAdmin() {}
-
-  static async renderHorarioFuncionamentoAdmin() {}
 
   static async renderFuncionariosOffWorkAdmin() {
     const { createE } = this;
@@ -226,18 +234,17 @@ export class Render {
       button.classList.add("button2", "buttonContratar");
       button.id = elem.uuid;
       button.innerText = "Contratar";
-
-      h2.innerText = elem.username;
       spanLevel.innerText = "Nível profissional:";
-      span.innerText = elem.professional_level;
-      span.style.fontWeight = "600";
       span1.innerText = `Tipo de trabalho :`;
+      span3.innerText = `E-mail para contato:`;
+      h2.innerText = elem.username;
+      span.innerText = elem.professional_level;
       elem.kind_of_work
         ? (span2.innerText = elem.kind_of_work)
         : (span2.innerText = "A definir.");
-      span2.style.fontWeight = "600";
-      span3.innerText = `E-mail para contato:`;
       span4.innerText = elem.email;
+      span.style.fontWeight = "600";
+      span2.style.fontWeight = "600";
       span4.style.fontWeight = "600";
 
       li.append(h2, spanLevel, span, span1, span2, span3, span4, button);
@@ -247,6 +254,7 @@ export class Render {
   }
 
   static renderMenuDashUser() {
+    const { renderMenu } = this;
     const arrayLinks = [
       { text: "Voltar à homepage", href: "/src/pages/dashboard.html" },
       { text: "Visualizar sua empresa", href: "/src/pages/user/empresa.html" },
@@ -259,11 +267,11 @@ export class Render {
         href: "/src/pages/user/editInfos.html",
       },
     ];
-
-    this.renderMenu(arrayLinks);
+    renderMenu(arrayLinks);
   }
 
   static renderMenuDashAdmin() {
+    const { renderMenu } = this;
     const arrayLinks = [
       { text: "Voltar à homepage", href: "/src/pages/dashboardAdmin.html" },
       { text: "Ver setores", href: "/src/pages/admin/setores.html" },
@@ -277,19 +285,18 @@ export class Render {
         href: "/src/pages/admin/funcionarios.html",
       },
     ];
-
-    this.renderMenu(arrayLinks);
+    renderMenu(arrayLinks);
   }
 
   static renderMenu(array) {
     const sectionMenuHide = document.querySelector(".sectionMenu");
-
     const arrayLinks = array;
+    const { createE } = Render;
 
     function createLinks(ul) {
       arrayLinks.forEach((elem) => {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
+        const li = createE("li");
+        const a = createE("a");
 
         a.href = elem.href;
         a.innerText = elem.text;
@@ -299,26 +306,22 @@ export class Render {
       });
     }
 
-    function showAndHideMenu(elem) {
+    function showAndHideMenu() {
       buttonMenu.classList.toggle("hidden");
       sectionMenuHide.classList.toggle("hidden");
     }
 
     function createMenu() {
-      function createElem(elem) {
-        return document.createElement(elem);
-      }
       function classeAdd(elem, classe) {
         elem.classList.add(classe);
       }
-
-      const divRectangle4 = createElem("div");
-      const divRectangle5 = createElem("div");
-      const ul = createElem("ul");
-      const divButton = createElem("div");
-      const divMaior = createElem("div");
-      const li = createElem("li");
-      const spanLogout = createElem("span");
+      const divRectangle4 = createE("div");
+      const divRectangle5 = createE("div");
+      const divButton = createE("div");
+      const divMaior = createE("div");
+      const ul = createE("ul");
+      const li = createE("li");
+      const spanLogout = createE("span");
 
       classeAdd(divMaior, "menuHeader");
       classeAdd(divButton, "buttonMenuHide");
@@ -352,10 +355,6 @@ export class Render {
 
   static createE(e) {
     return document.createElement(e);
-  }
-
-  static classAdd(e, c) {
-    return e.classList.add(c);
   }
 
   static renderDarkMode() {}

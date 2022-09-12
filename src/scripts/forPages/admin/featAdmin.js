@@ -34,8 +34,7 @@ export class Admin {
   }
 
   static async getAllUsersForEdit() {
-    const users = await Render.renderFuncionariosAdmin();
-
+    await Render.renderFuncionariosAdmin();
     const buttonEditar = document.querySelectorAll(".buttonEditar");
     const buttonDemitir = document.querySelectorAll(".buttonDemitir");
     const modal1 = document.querySelector(".modal1");
@@ -48,6 +47,7 @@ export class Admin {
         modal1.classList.toggle("hidden");
       });
     });
+
     buttonDemitir.forEach((elem) => {
       elem.addEventListener("click", async (event) => {
         event.preventDefault();

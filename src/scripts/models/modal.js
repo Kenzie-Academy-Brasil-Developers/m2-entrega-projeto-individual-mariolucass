@@ -132,14 +132,21 @@ export class Modal {
     modal.append(form);
 
     const button = document.createElement("button");
+    const h3 = document.createElement("h3");
+
     button.id = id;
     button.innerText = "Demitir Agora.";
+    h3.innerText = "Tem certeza que quer demitir?";
 
     button.classList.add("buttonDemitirApi", "button2");
 
     button.addEventListener("click", async (event) => {
       event.preventDefault();
+      const idFuncionario = event.target.id;
+      Api.attDemitirFuncionarioApi(idFuncionario);
     });
+
+    form.append(h3, button);
   }
 
   static closeModal(modal, form) {

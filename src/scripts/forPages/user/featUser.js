@@ -2,21 +2,26 @@ import { Api } from "../../models/api.js";
 import { Render } from "../../models/render.js";
 
 export class User {
-  static async EditUser() {
+  static async editUser() {
     const buttonEdit = document.getElementById("buttonEdit");
+    const buttonDelete = document.getElementById("buttonDelete");
 
     buttonEdit.addEventListener("click", async (event) => {
       event.preventDefault();
       const inputEmail = document.getElementById("editEmail");
       const inputUserName = document.getElementById("editUserName");
       const inputPassword = document.getElementById("editPassword");
+
       const data = {
         username: inputUserName.value,
         email: inputEmail.value,
         password: inputPassword.value,
       };
-
       await Api.attInfoLoggedApi(data);
+    });
+
+    buttonDelete.addEventListener("click", async (event) => {
+      event.preventDefault();
     });
   }
 
