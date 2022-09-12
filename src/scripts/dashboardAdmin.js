@@ -1,5 +1,5 @@
 import { Render } from "./models/render.js";
-const token = Render.Usertoken;
+const token = localStorage.getItem("@Hashy:admin");
 function dashboard() {
   Render.renderMenuDashAdmin();
 }

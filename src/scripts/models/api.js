@@ -11,11 +11,11 @@ export class Api {
         localStorage.setItem("@Hashy:userId", res.data.uuid);
         if (res.data.is_admin) {
           window.location.assign("/src/pages/dashboardAdmin.html");
-          this.messageSucessApi("o login");
+          localStorage.setItem("@Hashy:admin", "useradmin");
         } else {
           window.location.assign("/src/pages/dashboard.html");
-          this.messageSucessApi("o login");
         }
+        this.messageSucessApi("o login");
       })
       .catch((err) => this.messageErrorApi(err));
 
@@ -50,7 +50,7 @@ export class Api {
     const empresas = await instance
       .get(`/companies/${setor}`)
       .then((res) => {
-        res.data;
+        return res.data;
       })
       .catch((err) => this.messageErrorApi(err));
 

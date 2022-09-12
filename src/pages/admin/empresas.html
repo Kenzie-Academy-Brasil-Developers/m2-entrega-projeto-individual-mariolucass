@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/src/styles/reset.css" />
-    <link rel="stylesheet" href="/src/styles/forPages/admin/" />
+    <link rel="stylesheet" href="/src/styles/forPages/admin/empresas.css" />
 
     <link
       rel="stylesheet"
@@ -15,7 +15,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-    <script type="module" src="/src/scripts/forPages/admin/" defer></script>
+    <script
+      type="module"
+      src="/src/scripts/forPages/admin/empresas.js"
+      defer
+    ></script>
 
     <title>Hashy - Empresa usuário</title>
   </head>
@@ -33,10 +37,15 @@
     <section class="sectionMenu hidden"></section>
 
     <main>
-      <h2>Aqui está sua empresa <span id="nameUserBoasVindas"></span>.</h2>
-      <section class="empresaUser">
-        <div></div>
-      </section>
+      <h2>
+        Esta area é referente ao controle das Empresas. Aqui você vê-las,
+        deletá-las ou editá-las.
+      </h2>
+      <section class="empresasCriadas"></section>
+      <section class="createEmpresa"></section>
+      <section class="deleteEmpresa"></section>
+      <section class="modal"></section>
+      <section class="modal1"></section>
     </main>
   </body>
 </html>

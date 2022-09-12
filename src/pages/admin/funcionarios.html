@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/src/styles/reset.css" />
+    <link rel="stylesheet" href="/src/styles/forPages/admin/funcionarios.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <script
+      type="module"
+      src="/src/scripts/forPages/admin/funcionarios.js"
+      defer
+    ></script>
+
+    <title>Hashy - Empresa usuário</title>
+  </head>
+
+  <body>
+    <header>
+      <div><h2>Hashy</h2></div>
+      <div class="buttonMenu">
+        <div class="rectangle1"></div>
+        <div class="rectangle2"></div>
+        <div class="rectangle3"></div>
+      </div>
+    </header>
+
+    <section class="sectionMenu hidden"></section>
+
+    <main>
+      <h2>
+        Esta area é referente ao controle dos funcionários. Aqui você vê os
+        funcionários que aguardam uma vaga, além de poder demitir funcionários
+        das suas empresas ou editá-los.
+      </h2>
+      <div class="divPrincipal">
+        <h3>Aqui estão os funcionários disponiveis para serem contratados:</h3>
+        <section class="funcionariosOffWork secao1"></section>
+        <h3>Edite ou demita algum funcionário da sua empresa.</h3>
+        <section class="funcionariosEditarDeletar secao1"></section>
+        <section class="modal hidden"></section>
+        <section class="modal1 hidden"></section>
+        <section class="modal2 hidden"></section>
+      </div>
+    </main>
+  </body>
+</html>
