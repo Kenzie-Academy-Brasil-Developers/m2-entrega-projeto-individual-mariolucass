@@ -15,3 +15,12 @@ main section {
   padding: 0.5rem;
   gap: 1rem;
 }
+
+.departamentoUser ul {
+  height: 100px;
+  overflow-y: hidden;
+}
+
+.departamentoCoWorkers ul {
+  height: 200px;
+}

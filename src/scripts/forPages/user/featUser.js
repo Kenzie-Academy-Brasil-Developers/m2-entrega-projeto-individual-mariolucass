@@ -21,31 +21,35 @@ export class User {
   }
 
   static async getEmpresa() {
-    const usuario = await Api.getUserLoggedApi();
-    const empresa = usuario.kind_of_work;
+    const empresa = await Api.getDepartamentsLoggedApi();
     const section = document.querySelector(".empresaUser");
     const message = "da sua Empresa";
 
-    empresa ? Render.renderEmpresa() : this.messageError(message, section);
+    empresa
+      ? Render.renderEmpresa(empresa)
+      : this.messageError(message, section);
   }
 
   static async getDepartamento() {
-    const departamento = await Api.getDepartamentsLoggedApi();
+    const departamento1 = await Api.getDepartamentsLoggedApi();
+    const departamento = departamento1.departaments;
+    console.log(departamento);
     const section = document.querySelector(".departamentoUser");
     const message = "do seu Departamento";
 
     departamento
-      ? Render.renderDepartaments()
+      ? Render.renderDepartaments(departamento)
       : this.messageError(message, section);
   }
 
   static async getCoWorkers() {
     const coWorkers = await Api.getCoWorkersApi();
+    console.log(coWorkers);
     const section = document.querySelector(".departamentoCoWorkers");
     const message = "de CoWorkers";
 
     coWorkers.length
-      ? Render.renderCoWorkers()
+      ? Render.renderCoWorkers(coWorkers)
       : this.messageError(message, section);
   }
 
