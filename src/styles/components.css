@@ -35,7 +35,7 @@ body {
 
 header {
   position: fixed;
-  width: 90vw;
+  width: 85vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

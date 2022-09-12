@@ -16,3 +16,7 @@ select {
   border: 1px solid var(--black-color);
   text-align: center;
 }
+
+.hidden {
+  display: none;
+}

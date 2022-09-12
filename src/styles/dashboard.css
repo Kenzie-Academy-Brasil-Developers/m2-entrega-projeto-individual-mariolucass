@@ -172,7 +172,6 @@ main {
   padding: 8px;
   background-color: var(--blue-color2);
   color: var(--white-div);
-  min-height: 20%;
 }
 
 .hidden {
