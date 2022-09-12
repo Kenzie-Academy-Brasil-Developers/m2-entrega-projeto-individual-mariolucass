@@ -41,7 +41,6 @@ export class Render {
     const { createE } = this;
     const section = document.querySelector(".departamentoUser");
     const ul = createE("ul");
-    console.log(lista);
     const li = createE("li");
     const h2 = createE("h2");
     const span2 = createE("span");
@@ -79,7 +78,6 @@ export class Render {
     const { createE } = this;
     const section = document.querySelector(".empresaUser");
     const ul = createE("ul");
-    console.log(lista);
     const li = createE("li");
     const h2 = createE("h2");
     const span1 = createE("span");
@@ -155,7 +153,7 @@ export class Render {
     const { createE } = this;
     const funcionarios1 = await Api.getAllUsersApi();
     const funcionarios = funcionarios1.filter((elem) => {
-      return !elem.is_admin;
+      return !elem.is_admin && elem.department_uuid;
     });
     const secao = document.querySelector(".funcionariosEditarDeletar");
     const ul = createE("ul");
