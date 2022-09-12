@@ -37,6 +37,17 @@
   align-items: center;
 }
 
+#closeModal {
+  position: fixed;
+  right: 4.6%;
+  top: 26.8%;
+  background-color: brown;
+  padding: 0.4rem;
+  border-radius: var(--radius3);
+  color: azure;
+  cursor: pointer;
+}
+
 .hidden {
   display: none;
 }

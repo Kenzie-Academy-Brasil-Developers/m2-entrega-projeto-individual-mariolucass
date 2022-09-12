@@ -145,6 +145,7 @@ export class Modal {
   static closeModal(modal, form) {
     const closeModal = document.createElement("span");
     closeModal.innerText = "X";
+    closeModal.id = "closeModal";
     closeModal.addEventListener("click", () => {
       modal.classList.toggle("hidden");
     });
