@@ -31,6 +31,50 @@ select {
   cursor: pointer;
 }
 
+.divButtons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.divButtons button {
+  width: 30%;
+  color: var(--white-color);
+}
+
+.modal1,
+.modal2 {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(17, 17, 26, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#closeModal {
+  position: fixed;
+  right: 4.6%;
+  top: 26.8%;
+  background-color: brown;
+  padding: 0.4rem;
+  border-radius: var(--radius3);
+  color: azure;
+  cursor: pointer;
+}
+
 .hidden {
   display: none;
+}
+
+@media (min-width: 768px) {
+  form {
+    width: 90%;
+  }
+
+  header {
+    width: 98vw;
+  }
 }

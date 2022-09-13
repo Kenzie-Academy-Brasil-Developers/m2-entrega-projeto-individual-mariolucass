@@ -53,9 +53,60 @@ export class Modal {
     lista.length ? listarEmpresas() : naoTemEmpresas();
   }
 
-  static async editDepartamento() {}
+  static async editDepartamento(id) {
+    const modal = document.querySelector(".modal1");
+    modal.innerHTML = "";
+    const form = document.createElement("form");
+    this.closeModal(modal, form);
 
-  static async deleteDepartamento() {}
+    const h3 = document.createElement("h3");
+    h3.innerText = "Edite aqui.";
+    const inputDescription = document.createElement("input");
+    inputDescription.id = "editarDescricao";
+    inputDescription.placeholder = "Edite aqui a descrição do departamento.";
+
+    const button = document.createElement("button");
+    button.id = id;
+    button.innerText = "Editar Agora.";
+    button.classList.add("buttonEditarApi", "button2");
+
+    button.addEventListener("click", async (event) => {
+      event.preventDefault();
+      const data = {
+        description: inputDescription.value,
+      };
+
+      Api.attDepartamentoApi(id, data);
+    });
+
+    form.append(h3, inputDescription, button);
+    modal.append(form);
+  }
+
+  static async deleteDepartamento(id) {
+    const modal = document.querySelector(".modal2");
+    modal.innerHTML = "";
+    const form = document.createElement("form");
+    this.closeModal(modal, form);
+    modal.append(form);
+
+    const button = document.createElement("button");
+    const h3 = document.createElement("h3");
+
+    button.id = id;
+    button.innerText = "Deletar Agora.";
+    h3.innerText = "Tem certeza que quer deletar esse departamento?";
+
+    button.classList.add("buttonDemitirApi", "button2");
+
+    button.addEventListener("click", async (event) => {
+      event.preventDefault();
+      const idDepartamento = event.target.id;
+      Api.deleteDepartamentoApi(idDepartamento);
+    });
+
+    form.append(h3, button);
+  }
 
   static async contratarFuncionario(id) {
     const departamentos = await Api.getAllDepartamentsApi();

@@ -123,11 +123,21 @@ export class Render {
       const liCard = createE("li");
       const nameEmpresa = createE("h3");
       const spanDescricao = createE("span");
+      const divTexto = createE("div");
+      const divImg = createE("div");
+      divTexto.classList.add("divTexto");
+      divImg.classList.add("divImagem");
+      const img = createE("img");
+      img.src =
+        "https://titulusdotcomdotbr.files.wordpress.com/2020/08/icon-company-png-7.png";
+
+      divImg.append(img);
 
       nameEmpresa.innerText = elem.name;
       spanDescricao.innerText = elem.description;
 
-      liCard.append(nameEmpresa, spanDescricao);
+      divTexto.append(nameEmpresa, spanDescricao);
+      liCard.append(divImg, divTexto);
       ul.append(liCard);
     });
 
@@ -143,6 +153,12 @@ export class Render {
       const li = createE("li");
       const span = createE("span");
       const button = createE("button");
+      const divImg = createE("div");
+      const img = createE("img");
+
+      divImg.classList.add("divImagem");
+      img.src =
+        "https://cdn.iconscout.com/icon/premium/png-256-thumb/sector-963642.png";
 
       button.classList.add("button2", "showEmpresas");
 
@@ -150,7 +166,8 @@ export class Render {
       span.innerText = elem.description;
       button.innerText = "Listar empresas";
 
-      li.append(span, button);
+      divImg.append(img);
+      li.append(divImg, span, button);
       ul.append(li);
     });
 
@@ -167,18 +184,64 @@ export class Render {
       const liCard = createE("li");
       const nameEmpresa = createE("h3");
       const spanDescricao = createE("span");
+      const divImg = createE("div");
+      const img = createE("img");
 
+      divImg.classList.add("divImagem");
+      divImg.append(img);
+      img.src =
+        "https://cdn.iconscout.com/icon/premium/png-256-thumb/department-1728827-1468716.png";
       nameEmpresa.innerText = elem.name;
       spanDescricao.innerText = elem.description;
 
-      liCard.append(nameEmpresa, spanDescricao);
+      liCard.append(divImg, nameEmpresa, spanDescricao);
       ul.append(liCard);
     });
 
     section.append(ul);
   }
 
-  static async renderEditDepartamentAdmin() {}
+  static async renderEditDepartamentAdmin() {
+    const { createE } = this;
+    const departamentos = await Api.getAllDepartamentsApi();
+    const section = document.querySelector(".departamentoEditarDeletar");
+
+    const ul = createE("ul");
+    departamentos.forEach((elem) => {
+      const liCard = createE("li");
+      const nameEmpresa = createE("h3");
+      const spanDescricao = createE("span");
+      const divButtons = createE("div");
+      const button1 = createE("button");
+      const button2 = createE("button");
+      const divImg = createE("div");
+      const img = createE("img");
+
+      divImg.classList.add("divImagem");
+      divImg.append(img);
+      img.src =
+        "https://cdn.iconscout.com/icon/premium/png-256-thumb/department-1728827-1468716.png";
+
+      divButtons.classList.add("divButtons");
+      button1.id = elem.uuid;
+      button2.id = elem.uuid;
+      button1.innerText = "Editar";
+      button2.innerText = "Deletar";
+      button1.classList.add("button2", "buttonEditar");
+      button2.classList.add("button2", "buttonDeletar");
+      button1.style.backgroundColor = "blue";
+      button2.style.backgroundColor = "red";
+
+      nameEmpresa.innerText = elem.name;
+      spanDescricao.innerText = elem.description;
+
+      divButtons.append(button1, button2);
+      liCard.append(divImg, nameEmpresa, spanDescricao, divButtons);
+      ul.append(liCard);
+    });
+
+    section.append(ul);
+  }
 
   static async renderFuncionariosAdmin() {
     const { createE } = this;
@@ -200,6 +263,14 @@ export class Render {
       const divButtons = createE("div");
       const button1 = createE("button");
       const button2 = createE("button");
+      const divImg = createE("div");
+      const divTxt = createE("div");
+      const img = createE("img");
+
+      divTxt.classList.add("divTexto");
+      divImg.classList.add("divImagem");
+      img.src =
+        "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_640.png";
 
       divButtons.classList.add("divButtons");
       button1.classList.add("button2", "buttonEditar");
@@ -226,9 +297,10 @@ export class Render {
       button1.style.backgroundColor = "blue";
       button2.style.backgroundColor = "red";
 
-      li.append(h2, spanLevel, span, span1, span2, span3, span4);
+      divImg.append(img);
+      divTxt.append(h2, spanLevel, span, span1, span2, span3, span4);
+      li.append(divImg, divTxt, divButtons);
       divButtons.append(button1, button2);
-      li.append(divButtons);
       ul.append(li);
     });
     secao.append(ul);
@@ -249,6 +321,14 @@ export class Render {
       const span3 = createE("span");
       const span4 = createE("span");
       const button = createE("button");
+      const divImg = createE("div");
+      const divTxt = createE("div");
+      const img = createE("img");
+
+      divTxt.classList.add("divTexto");
+      divImg.classList.add("divImagem");
+      img.src =
+        "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_640.png";
 
       button.classList.add("button2", "buttonContratar");
       button.id = elem.uuid;
@@ -266,7 +346,9 @@ export class Render {
       span2.style.fontWeight = "600";
       span4.style.fontWeight = "600";
 
-      li.append(h2, spanLevel, span, span1, span2, span3, span4, button);
+      divImg.append(img);
+      divTxt.append(h2, spanLevel, span, span1, span2, span3, span4);
+      li.append(divImg, divTxt, button);
       ul.append(li);
     });
     secao.append(ul);
@@ -326,6 +408,18 @@ export class Render {
         const span2 = createE("span");
         const span3 = createE("span");
         const span4 = createE("span");
+        const divImg = createE("div");
+        const divTxt = createE("div");
+        const img = createE("img");
+
+        divTxt.classList.add("divTexto");
+        divImg.classList.add("divImagem");
+        img.src =
+          "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_640.png";
+
+        divImg.append(img);
+        divTxt.append(h2, spanLevel, span, span1, span2, span3, span4);
+
         spanLevel.innerText = "Nível profissional:";
         span1.innerText = `Tipo de trabalho :`;
         span3.innerText = `E-mail para contato:`;
@@ -339,7 +433,7 @@ export class Render {
         span2.style.fontWeight = "600";
         span4.style.fontWeight = "600";
 
-        li.append(h2, spanLevel, span, span1, span2, span3, span4);
+        li.append(divImg, divTxt);
         ul.append(li);
       });
       sectionUsersOffWork.append(ul);
@@ -360,9 +454,14 @@ export class Render {
         const span2 = createE("span");
         const span3 = createE("span");
         const span4 = createE("span");
-        const divButtons = createE("div");
+        const divImg = createE("div");
+        const divTxt = createE("div");
+        const img = createE("img");
 
-        divButtons.classList.add("divButtons");
+        divTxt.classList.add("divTexto");
+        divImg.classList.add("divImagem");
+        img.src =
+          "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_640.png";
 
         elem.kind_of_work
           ? (span2.innerText = elem.kind_of_work)
@@ -379,7 +478,9 @@ export class Render {
         span2.style.fontWeight = "600";
         span4.style.fontWeight = "600";
 
-        li.append(h2, spanLevel, span, span1, span2, span3, span4);
+        divImg.append(img);
+        divTxt.append(h2, spanLevel, span, span1, span2, span3, span4);
+        li.append(divImg, divTxt);
         ul.append(li);
       });
       sectionFuncionarios.append(ul);
@@ -393,11 +494,20 @@ export class Render {
         const liCard = createE("li");
         const nameEmpresa = createE("h3");
         const spanDescricao = createE("span");
+        const divTexto = createE("div");
+        const divImg = createE("div");
+        const img = createE("img");
 
+        divTexto.classList.add("divTexto");
+        divImg.classList.add("divImagem");
+        img.src =
+          "https://cdn.iconscout.com/icon/premium/png-256-thumb/department-1728827-1468716.png";
         nameEmpresa.innerText = elem.name;
         spanDescricao.innerText = elem.description;
 
-        liCard.append(nameEmpresa, spanDescricao);
+        divTexto.append(nameEmpresa, spanDescricao);
+        divImg.append(img);
+        liCard.append(divImg, divTexto);
         ul.append(liCard);
       });
 
@@ -411,11 +521,21 @@ export class Render {
         const liCard = createE("li");
         const nameEmpresa = createE("h3");
         const spanDescricao = createE("span");
+        const divTexto = createE("div");
+        const divImg = createE("div");
+        divTexto.classList.add("divTexto");
+        divImg.classList.add("divImagem");
+        const img = createE("img");
+        img.src =
+          "https://titulusdotcomdotbr.files.wordpress.com/2020/08/icon-company-png-7.png";
+
+        divImg.append(img);
+        divTexto.append(nameEmpresa, spanDescricao);
 
         nameEmpresa.innerText = elem.name;
         spanDescricao.innerText = elem.description;
 
-        liCard.append(nameEmpresa, spanDescricao);
+        liCard.append(divImg, divTexto);
         ul.append(liCard);
       });
 

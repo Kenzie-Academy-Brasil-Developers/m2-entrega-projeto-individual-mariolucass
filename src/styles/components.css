@@ -148,8 +148,6 @@ h3 {
   justify-content: center;
   width: 100px;
   height: 100px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border-radius: 4rem;
 }
 
@@ -164,12 +162,12 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   height: 100%;
-  color: var(--black-color);
+  color: var(--white-div);
   border-radius: var(--radius2);
   gap: 8px;
-  padding: 0.5rem;
+  padding: 2rem;
 }
 
 @media (min-width: 768px) {

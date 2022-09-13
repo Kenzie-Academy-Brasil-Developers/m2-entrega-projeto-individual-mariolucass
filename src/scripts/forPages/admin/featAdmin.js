@@ -125,6 +125,30 @@ export class Admin {
     });
   }
 
+  static async getAllDepartamentsForEdit() {
+    await Render.renderEditDepartamentAdmin();
+    const buttonEditar = document.querySelectorAll(".buttonEditar");
+    const buttonDemitir = document.querySelectorAll(".buttonDeletar");
+    const modal1 = document.querySelector(".modal1");
+    const modal2 = document.querySelector(".modal2");
+
+    buttonEditar.forEach((elem) => {
+      elem.addEventListener("click", async (event) => {
+        event.preventDefault();
+        Modal.editDepartamento(elem.id);
+        modal1.classList.toggle("hidden");
+      });
+    });
+
+    buttonDemitir.forEach((elem) => {
+      elem.addEventListener("click", async (event) => {
+        event.preventDefault();
+        Modal.deleteDepartamento(elem.id);
+        modal2.classList.toggle("hidden");
+      });
+    });
+  }
+
   static messageError(message, section) {
     section.innerHTML = "";
 

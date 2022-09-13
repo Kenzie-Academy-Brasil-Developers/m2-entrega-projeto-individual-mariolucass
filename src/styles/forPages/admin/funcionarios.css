@@ -7,10 +7,6 @@
   gap: 2.5rem;
 }
 
-.secao1 ul li {
-  min-height: 43vh;
-}
-
 .divButtons {
   width: 100%;
   display: flex;
@@ -46,6 +42,17 @@
   cursor: pointer;
 }
 
+.divPrincipal {
+  display: flex;
+  flex-direction: row;
+}
+
 .hidden {
   display: none;
+}
+
+@media (min-width: 768px) {
+  .secao1 {
+    width: 35%;
+  }
 }
