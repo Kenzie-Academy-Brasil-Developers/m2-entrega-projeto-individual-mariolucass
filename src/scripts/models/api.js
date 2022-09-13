@@ -182,9 +182,9 @@ export class Api {
     return demitir;
   }
 
-  static async attDepartamentoApi(departamentoId) {
+  static async attDepartamentoApi(departamentoId, data) {
     const departamento = await instance1
-      .patch(`/departments/${departamentoId}`)
+      .patch(`/departments/${departamentoId}`, data)
       .then((res) => this.messageSucessApi("a edição do departamento"))
       .catch((err) => this.messageErrorApi(err));
 

@@ -6,6 +6,7 @@ async function departamentos() {
   Admin.createDepartamento();
   Admin.getDepartamentos();
   Admin.selectDepartamento();
+  Admin.getAllDepartamentsForEdit();
 }
 
 !token ? window.location.replace("/index.html") : departamentos();
