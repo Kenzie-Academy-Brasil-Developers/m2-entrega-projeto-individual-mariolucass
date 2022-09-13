@@ -9,7 +9,7 @@ form {
 
 select {
   width: 90%;
-  height: 1.5rem;
+  height: 2.5rem;
   border-radius: var(--radius3);
   border: 1px solid var(--black-color);
   text-align: center;
