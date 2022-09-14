@@ -125,8 +125,11 @@ main {
   margin: 0 auto;
   border-radius: var(--radius2);
   border: 3px var(--blue-color1) solid;
-  padding: 0.5rem;
+  padding: 1rem;
   padding-top: 5px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
 .secao1 {
@@ -138,23 +141,21 @@ main {
   width: 85%;
   margin: 0 auto;
   margin-top: 3rem;
-  border-radius: var(--radius1);
+  border-radius: var(--radius);
   gap: 1rem;
   padding: 1rem;
   margin: 0 auto;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
-    rgb(209, 213, 219) 0px 0px 0px 1px inset;
-  padding-top: 5px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
 .secao1 ul {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   overflow-x: auto;
   width: 100%;
   height: 23rem;
-  padding: 1rem;
   display: flex;
   gap: 1rem;
   overflow-y: auto;
@@ -163,6 +164,8 @@ main {
 }
 
 .secao1 ul li {
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   gap: 1rem;
   flex-direction: column;
@@ -172,8 +175,9 @@ main {
   padding: 8px;
   background-color: var(--blue-color2);
   color: var(--white-div);
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
 .divTextSection {
@@ -188,6 +192,7 @@ main {
   text-align: center;
   margin: 0 auto;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  height: 100px;
 }
 
 .hidden {
@@ -200,14 +205,12 @@ main {
   justify-content: center;
   width: 100px;
   height: 100px;
-  border-radius: 4rem;
 }
 
 .divImagem img {
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  border-radius: 2rem;
 }
 
 .divTexto {
@@ -215,21 +218,45 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 85%;
   height: 50%;
   background-color: var(--white-div);
   color: var(--black-color);
-  border-radius: var(--radius1);
-  border: 2px solid var(--black-color);
+  border-radius: var(--radius-bottomLi);
   gap: 8px;
-  padding: 2rem;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  padding: 1.5rem;
+  overflow-wrap: break-word;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.divButtons {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.divButtons button {
+  width: 45%;
+}
+
+#closeModal {
+  position: fixed;
+  right: 4.6%;
+  top: 26.8%;
+  background-color: brown;
+  padding: 0.4rem;
+  border-radius: var(--radius3);
+  color: azure;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
   main {
     flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   .boasVindas {
@@ -238,13 +265,23 @@ main {
   }
 
   .secao1 {
-    width: 20%;
+    width: 350px;
     justify-content: flex-start;
     max-height: 500px;
+    border: 3px var(--blue-color1) solid;
+  }
+
+  .secao1 ul li {
+    width: 65%;
   }
 
   .menuHeader {
     width: 200px;
+  }
+
+  .divTexto {
+    width: 70%;
+    padding: 2rem;
   }
 }
 

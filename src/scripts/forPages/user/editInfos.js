@@ -4,7 +4,7 @@ const token = Render.Usertoken;
 async function editInfos() {
   Render.renderMenuDashUser();
   Render.renderUser("nameUserBoasVindas", "userLevelWork");
-  await User.editUser();
+  User.editUser();
 }
 
 !token ? window.location.replace("/index.html") : editInfos();

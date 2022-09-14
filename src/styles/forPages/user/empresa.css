@@ -14,6 +14,10 @@ main section {
   gap: 1rem;
 }
 
+.secao1 ul {
+  overflow-y: hidden;
+}
+
 .empresaUser {
   height: 250px;
 }

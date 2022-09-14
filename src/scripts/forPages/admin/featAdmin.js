@@ -57,6 +57,19 @@ export class Admin {
     });
   }
 
+  static async selectUsers() {
+    const selectSetor = document.getElementById("usersListDelete");
+    const users = await Api.getAllUsersApi();
+    console.log(users);
+
+    users.forEach((element) => {
+      const option = document.createElement("option");
+      option.innerText = element.username;
+      option.value = element.uuid;
+      selectSetor.append(option);
+    });
+  }
+
   static async getEmpresas() {
     await Render.renderEmpresasCriadasAdmin();
   }
@@ -146,6 +159,18 @@ export class Admin {
         Modal.deleteDepartamento(elem.id);
         modal2.classList.toggle("hidden");
       });
+    });
+  }
+
+  static async deleteUser() {
+    const button = document.getElementById("buttonDelete");
+    const select = document.getElementById("usersListDelete");
+
+    button.addEventListener("click", async (event) => {
+      event.preventDefault();
+
+      const idUser = select.value;
+      await Api.deleteUser(idUser);
     });
   }
 
