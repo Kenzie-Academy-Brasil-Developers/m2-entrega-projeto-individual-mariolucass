@@ -280,6 +280,7 @@ form {
     top: 25%;
     min-height: 500px;
     width: 600px;
+    align-items: center;
   }
 
   .secao1 {
