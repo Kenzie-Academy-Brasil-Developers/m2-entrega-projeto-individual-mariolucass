@@ -4,8 +4,6 @@ import { Render } from "../../models/render.js";
 export class User {
   static async editUser() {
     const buttonEdit = document.getElementById("buttonEdit");
-    const buttonDelete = document.getElementById("buttonDelete");
-
     buttonEdit.addEventListener("click", async (event) => {
       event.preventDefault();
       const inputEmail = document.getElementById("editEmail");
@@ -18,10 +16,6 @@ export class User {
         password: inputPassword.value,
       };
       await Api.attInfoLoggedApi(data);
-    });
-
-    buttonDelete.addEventListener("click", async (event) => {
-      event.preventDefault();
     });
   }
 
@@ -48,12 +42,22 @@ export class User {
 
   static async getCoWorkers() {
     const coWorkers = await Api.getCoWorkersApi();
+    console.log();
     const section = document.querySelector(".departamentoCoWorkers");
     const message = "de CoWorkers";
 
-    coWorkers.length
+    coWorkers
       ? Render.renderCoWorkers(coWorkers)
       : this.messageError(message, section);
+  }
+
+  static async deleteFuncionario() {
+    const buttonDeletar = document.getElementById("buttonDelete");
+
+    buttonDeletar.addEventListener("click", async (event) => {
+      event.preventDefault();
+      Api.deleteFuncionario();
+    });
   }
 
   static messageError(message, section) {

@@ -221,8 +221,18 @@ export class Api {
     return departamentoDelete;
   }
 
+  static async deleteUser(id) {
+    const userDelete = await instance1
+      .delete(`admin/delete_user/${id}`)
+      .then((res) => res.data, this.messageSucessApi("a exclusão do usuário"))
+      .catch((err) => this.messageErrorApi(err));
+
+    return userDelete;
+  }
+
   static messageErrorApi(message) {
-    Toast.create(message.response.data.error);
+    Toast.create(message);
+    console.log(message);
   }
 
   static messageSucessApi(message) {

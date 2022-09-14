@@ -7,15 +7,10 @@
   gap: 2.5rem;
 }
 
-.divButtons {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
-.divButtons button {
-  width: 25%;
-  color: var(--white-color);
+form {
+  width: 85%;
+  padding: 1rem;
+  border-radius: var(--radius1);
 }
 
 .modal,
@@ -31,28 +26,13 @@
   align-items: center;
 }
 
-#closeModal {
-  position: fixed;
-  right: 4.6%;
-  top: 26.8%;
-  background-color: brown;
-  padding: 0.4rem;
-  border-radius: var(--radius3);
-  color: azure;
-  cursor: pointer;
-}
-
-.divPrincipal {
-  display: flex;
-  flex-direction: row;
-}
-
 .hidden {
   display: none;
 }
 
 @media (min-width: 768px) {
-  .secao1 {
-    width: 35%;
+  .divPrincipal {
+    display: flex;
+    flex-direction: row;
   }
 }

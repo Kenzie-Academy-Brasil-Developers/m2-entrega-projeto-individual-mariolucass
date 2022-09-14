@@ -1,3 +1,5 @@
+@import url(/src/styles/components.css);
+
 section {
   display: flex;
   justify-content: center;
@@ -16,28 +18,29 @@ section {
 
 ul {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
-  overflow-x: auto;
   width: 90%;
   height: 14rem;
   padding: 1rem;
+  overflow-y: auto;
 }
 
 ul li {
   display: flex;
   gap: 1rem;
-  min-width: 224px;
+  width: 150px;
   height: 200px;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border-radius: var(--radius2);
-  padding: 8px;
   color: var(--white-div);
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   background-color: var(--white-div);
-  padding-bottom: 5px;
 }
 
 .buttonInactive {
@@ -45,20 +48,67 @@ ul li {
   background-color: var(--blue-color1);
 }
 
-.divTexto {
-  background-color: var(--blue-color3);
+.imgConteudos {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgConteudos img {
   width: 90%;
-  text-align: center;
-  color: var(--white-color);
+  height: 90%;
+  border-radius: var(--radius2);
+  object-fit: contain;
+}
+
+.divConteudos {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-  margin: 0 auto;
 }
 
 .divImagem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 4rem;
   box-shadow: none;
+}
+
+.divImagem img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  border-radius: 2rem;
+}
+
+.divTexto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  background-color: var(--white-div);
+  color: var(--black-color);
+  border-radius: var(--radius1);
+  gap: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  background-color: var(--blue-color1);
+  text-align: left;
+  min-height: 100px;
+  color: var(--white-color);
+  justify-content: space-around;
+  align-items: flex-start;
+  border-radius: var(--radius-bottom);
+  padding-top: 0.5rem;
 }
 
 .divTextSection {
@@ -72,4 +122,122 @@ ul li {
   text-align: center;
   margin: 0 auto;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-color: var(--blue-color1);
+  }
+
+  header {
+    background-image: linear-gradient(
+      to right,
+      var(--image-color) 57.6%,
+      var(--blue-color1) 25%,
+      var(--blue-color1) 100%
+    );
+
+    opacity: 85%;
+  }
+
+  main {
+    margin: 0;
+    min-width: 98vw;
+    display: flex;
+    flex-direction: row;
+    margin-top: 14vh;
+  }
+
+  form {
+    min-height: 45%;
+    width: 45%;
+    border-radius: 0px;
+    box-shadow: rgba(0, 52, 89, 0.4) 5px 5px, rgba(0, 52, 89, 0.3) 10px 10px,
+      rgba(0, 52, 89, 0.2) 15px 15px, rgba(0, 52, 89, 0.1) 20px 20px,
+      rgba(0, 52, 89, 0.05) 25px 25px;
+  }
+
+  section {
+    min-height: 45%;
+    width: 45%;
+    border-radius: 0px;
+    border: 0px;
+  }
+
+  ul li {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .divTexto {
+    padding: 0.5rem;
+    width: 60%;
+    text-align: center;
+    align-items: center;
+    gap: 1rem;
+    justify-content: flex-start;
+    border-radius: 0px;
+  }
+
+  ul {
+    padding: 1rem;
+  }
+
+  .divConteudos {
+    min-width: 40%;
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .imgConteudos {
+    position: sticky;
+    min-width: 60%;
+    min-height: 87.5vh;
+  }
+
+  .imgConteudos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0px;
+  }
+}
+
+@media (min-width: 1023px) {
+  header {
+    width: 98vw;
+    background-image: linear-gradient(
+      to right,
+      var(--image-color) 58.1%,
+      var(--blue-color1) 25%,
+      var(--blue-color1) 100%
+    );
+  }
+  main {
+    margin: 0;
+    min-width: 98vw;
+    display: flex;
+    flex-direction: row;
+    margin-top: 13vh;
+  }
+}
+
+@media (min-width: 2000px) {
+  header {
+    width: 98vw;
+    background-image: linear-gradient(
+      to right,
+      var(--image-color) 58.85%,
+      var(--blue-color1) 25%,
+      var(--blue-color1) 100%
+    );
+  }
+  main {
+    margin: 0;
+    min-width: 98vw;
+    display: flex;
+    flex-direction: row;
+    margin-top: 12.5vh;
+  }
 }

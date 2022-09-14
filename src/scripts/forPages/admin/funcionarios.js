@@ -5,6 +5,8 @@ async function funcionarios() {
   Render.renderMenuDashAdmin();
   Admin.getFuncionariosOffWork();
   Admin.getAllUsersForEdit();
+  Admin.selectUsers();
+  Admin.deleteUser();
 }
 
 !token ? window.location.replace("/index.html") : funcionarios();

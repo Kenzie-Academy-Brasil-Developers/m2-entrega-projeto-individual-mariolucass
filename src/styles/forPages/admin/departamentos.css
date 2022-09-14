@@ -2,44 +2,8 @@
 @import url(/src/styles/dashboard.css);
 
 form {
-  min-height: 80%;
   padding: 1rem;
   border-radius: var(--radius1);
-}
-
-select {
-  width: 90%;
-  height: 2.5rem;
-  border-radius: var(--radius3);
-  border: 1px solid var(--black-color);
-  text-align: center;
-}
-
-.secao1 ul {
-  height: 12rem;
-  overflow-y: auto;
-}
-
-#closeModal {
-  position: fixed;
-  right: 4.6%;
-  top: 26.8%;
-  background-color: brown;
-  padding: 0.4rem;
-  border-radius: var(--radius3);
-  color: azure;
-  cursor: pointer;
-}
-
-.divButtons {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
-.divButtons button {
-  width: 30%;
-  color: var(--white-color);
 }
 
 .modal1,
@@ -52,17 +16,6 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-#closeModal {
-  position: fixed;
-  right: 4.6%;
-  top: 26.8%;
-  background-color: brown;
-  padding: 0.4rem;
-  border-radius: var(--radius3);
-  color: azure;
-  cursor: pointer;
 }
 
 .hidden {
