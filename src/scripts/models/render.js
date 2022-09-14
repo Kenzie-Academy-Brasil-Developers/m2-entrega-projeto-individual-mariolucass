@@ -118,7 +118,6 @@ export class Render {
   static async renderEmpresasCriadasAdmin() {
     const { createE } = this;
     const empresas = await Api.getEmpresasApi();
-    console.log(empresas);
     const section = document.querySelector(".empresasCriadas");
     const ul = createE("ul");
     empresas.forEach((elem) => {
@@ -256,7 +255,6 @@ export class Render {
     });
     const secao = document.querySelector(".funcionariosEditarDeletar");
     const ul = createE("ul");
-    console.log(!funcionarios.length);
     if (!funcionarios.length) {
       const h2Fu = createE("h2");
       h2Fu.innerText = "Você ainda não tem funcionários, tente contratar um.";
