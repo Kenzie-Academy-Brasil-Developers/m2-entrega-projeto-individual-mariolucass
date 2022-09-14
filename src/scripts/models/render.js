@@ -51,11 +51,21 @@ export class Render {
     const li = createE("li");
     const h2 = createE("h2");
     const span2 = createE("span");
+    const divImg = createE("div");
+    const divTxt = createE("div");
+    const img = createE("img");
 
+    divImg.classList.add("divImagem");
+    divTxt.classList.add("divTexto");
+
+    img.src =
+      "https://cdn.iconscout.com/icon/premium/png-256-thumb/department-1728827-1468716.png";
     h2.innerText = lista.name;
     span2.innerText = lista.description;
 
-    li.append(h2, span2);
+    divImg.append(img);
+    divTxt.append(h2, span2);
+    li.append(divImg, divTxt);
     ul.append(li);
     section.append(ul);
   }
@@ -68,7 +78,7 @@ export class Render {
     lista.forEach((elem) => {
       const li = createE("li");
       li.id = "coWorkers";
-      const userName = createE("h3");
+      const userName = createE("h2");
       const span = createE("span");
       const span1 = createE("span");
       const divImg = createE("div");
@@ -83,12 +93,12 @@ export class Render {
       userName.innerText = elem.username;
 
       elem.kind_of_work
-        ? (span.innerText = elem.kind_of_work)
+        ? (span.innerText = `Modalidade: ${elem.kind_of_work}`)
         : (span.innerText = "A decidir.");
-      span1.innerText = elem.professional_level;
+      span1.innerText = `Nível profissional: ${elem.professional_level}`;
 
       divImg.append(img);
-      divTxt.append(userName, span, span1);
+      divTxt.append(userName, span1, span);
       li.append(divImg, divTxt);
       ul.append(li);
     });
@@ -105,12 +115,22 @@ export class Render {
     const h2 = createE("h2");
     const span1 = createE("span");
     const span2 = createE("span");
+    const divTexto = createE("div");
+    const divImg = createE("div");
 
-    h2.innerText = lista.name;
-    span1.innerText = lista.opening_hours;
-    span2.innerText = lista.description;
+    divTexto.classList.add("divTexto");
+    divImg.classList.add("divImagem");
+    const img = createE("img");
+    img.src =
+      "https://titulusdotcomdotbr.files.wordpress.com/2020/08/icon-company-png-7.png";
 
-    li.append(h2, span1, span2);
+    h2.innerText = `${lista.name}`;
+    span1.innerText = `Horário: ${lista.opening_hours}`;
+    span2.innerText = `Descrição: ${lista.description}`;
+
+    divImg.append(img);
+    divTexto.append(h2, span1, span2);
+    li.append(divImg, divTexto);
     ul.append(li);
     section.append(ul);
   }
