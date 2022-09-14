@@ -30,21 +30,19 @@ export class User {
   }
 
   static async getDepartamento() {
-    const departamento1 = await Api.getDepartamentsLoggedApi();
-    const departamento = departamento1.departaments;
+    const departamento = await Api.getCoWorkersApi();
     const section = document.querySelector(".departamentoUser");
     const message = "do seu Departamento";
-
     departamento
       ? Render.renderDepartaments(departamento)
       : this.messageError(message, section);
   }
 
   static async getCoWorkers() {
-    const coWorkers = await Api.getCoWorkersApi();
+    const coWorkers1 = await Api.getCoWorkersApi();
+    const coWorkers = coWorkers1.users;
     const section = document.querySelector(".departamentoCoWorkers");
     const message = "de CoWorkers";
-
     coWorkers
       ? Render.renderCoWorkers(coWorkers)
       : this.messageError(message, section);
@@ -60,7 +58,6 @@ export class User {
   }
 
   static messageError(message, section) {
-    section.innerHTML = "";
     const h3 = document.createElement("h3");
     const span = document.createElement("span");
     h3.innerText = `Infelizmente não foi possivel carregar os dados ${message}`;

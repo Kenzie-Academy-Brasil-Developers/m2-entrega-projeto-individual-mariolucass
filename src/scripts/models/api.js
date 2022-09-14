@@ -87,7 +87,7 @@ export class Api {
   static async getCoWorkersApi() {
     const coWorkers = await instance1
       .get("/users/departments/coworkers")
-      .then((res) => res.data[0].users)
+      .then((res) => res.data[0])
       .catch((err) => this.messageErrorApi(err));
 
     return coWorkers;
