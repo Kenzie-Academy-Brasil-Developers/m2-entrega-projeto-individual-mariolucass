@@ -42,7 +42,6 @@ export class User {
 
   static async getCoWorkers() {
     const coWorkers = await Api.getCoWorkersApi();
-    console.log();
     const section = document.querySelector(".departamentoCoWorkers");
     const message = "de CoWorkers";
 

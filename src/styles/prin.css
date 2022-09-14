@@ -125,10 +125,6 @@ ul li {
 }
 
 @media (min-width: 768px) {
-  body {
-    background-color: var(--blue-color1);
-  }
-
   header {
     background-image: linear-gradient(
       to right,

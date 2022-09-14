@@ -232,7 +232,6 @@ export class Api {
 
   static messageErrorApi(message) {
     Toast.create(message);
-    console.log(message);
   }
 
   static messageSucessApi(message) {

@@ -60,7 +60,6 @@ export class Admin {
   static async selectUsers() {
     const selectSetor = document.getElementById("usersListDelete");
     const users = await Api.getAllUsersApi();
-    console.log(users);
 
     users.forEach((element) => {
       const option = document.createElement("option");
