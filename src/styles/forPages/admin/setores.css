@@ -1,5 +1,5 @@
-@import url(/src/styles/components.css);
-@import url(/src/styles/dashboard.css);
+@import url(./src/styles/components.css);
+@import url(./src/styles/dashboard.css);
 
 .secao1 ul li span {
   font-size: 24px;

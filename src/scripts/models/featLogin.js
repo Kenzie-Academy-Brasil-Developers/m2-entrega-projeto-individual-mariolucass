@@ -17,6 +17,7 @@ export class Login {
       Api.postLoginApi(data);
     });
   }
+
   static async redirect() {
     const redirButton = document.querySelectorAll(".buttonRedir");
 

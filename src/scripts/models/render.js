@@ -6,6 +6,10 @@ export class Render {
   static async renderEmpresasLogin() {
     const { createE } = this;
     const empresas = await Api.getEmpresasApi();
+    if (!empresas) {
+      return console.log("False");
+    }
+
     const ul = document.querySelector(".listaEmpresas");
     empresas.forEach((elem) => {
       const liCard = createE("li");
