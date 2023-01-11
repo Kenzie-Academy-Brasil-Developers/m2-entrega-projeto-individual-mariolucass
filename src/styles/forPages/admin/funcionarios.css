@@ -1,5 +1,5 @@
-@import url(./src/styles/components.css);
-@import url(./src/styles/dashboard.css);
+@import url(../../components.css);
+@import url(../../dashboard.css);
 
 .divPrincipal {
   display: flex;
